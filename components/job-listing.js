@@ -11,27 +11,35 @@ class JobListing extends HTMLElement {
         let languages = this.getAttribute("data-languages");
         let tools = this.getAttribute("data-tools");
 
-        this.innerHTML = `
+        let htmlText = `
             <p class="job-listing__role">${role}</p>
             <p class="job-listing__level">${level}</p>
-            <ul class="job-listing__languages">
-                ${this.getDataList(languages)}
-            </ul>
-            <ul class="job-listing__tools">
-                ${this.getDataList(tools)}
-            </ul>
         `;
+
+        let languagesStr = this.getDataList(languages, "languages");
+        if (languagesStr !== undefined) {
+            htmlText += languagesStr;
+        }
+
+        let toolsStr = this.getDataList(tools, "tools");
+        if (toolsStr !== undefined) {
+            htmlText += languagesStr;
+        }
+
+        this.innerHTML = htmlText;
     }
 
-    getDataList(arrString) {
-        let html = "";
-        let arr = arrString.split(",");
+    getDataList(arrString, className) {
+        if (arrString !== "null") {
+            let html = `<ul class="job-listing__${className}">`;
+            let arr = arrString.split(",");
 
-        arr.forEach(element => {
-            html += `<li>${element}</li>`;
-        });
+            arr.forEach(element => {
+                html += `<li>${element}</li>`;
+            });
 
-        return html;
+            return (html += `</ul>`);
+        }
     }
 }
 
