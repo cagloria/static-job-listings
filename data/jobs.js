@@ -2,6 +2,7 @@
 
 var JOBS = (function() {
     let nextId = 0;
+
     var jobs = [
         new Job(
             "Photosnap",
@@ -16,17 +17,137 @@ var JOBS = (function() {
             "Senior",
             ["HTML", "CSS", "JavaScript"],
             null
+        ),
+        new Job(
+            "Manage",
+            true,
+            true,
+            "Fullstack Developer",
+            1,
+            "d",
+            "Part Time",
+            "Remote",
+            "Fullstack",
+            "Midweight",
+            ["Python"],
+            ["React"]
+        ),
+        new Job(
+            "Account",
+            true,
+            false,
+            "Junior Frontend Developer",
+            2,
+            "d",
+            "Part Time",
+            "USA only",
+            "Frontend",
+            "Junior",
+            ["JavaScript"],
+            ["React", "Sass"]
+        ),
+        new Job(
+            "MyHome",
+            false,
+            false,
+            "Junior Frontend Developer",
+            5,
+            "d",
+            "Contract",
+            "USA only",
+            "Frontend",
+            "Junior",
+            ["CSS", "JavaScript"],
+            null
+        ),
+        new Job(
+            "Loop Studios",
+            false,
+            false,
+            "Software Engineer",
+            1,
+            "w",
+            "Full Time",
+            "Worldwide",
+            "Fullstack",
+            "Midweight",
+            ["JavaScript", "Ruby"],
+            ["Sass"]
+        ),
+        new Job(
+            "FaceIt",
+            false,
+            false,
+            "Junior Backend Developer",
+            2,
+            "w",
+            "Full Time",
+            "UK only",
+            "Backend",
+            "Junior",
+            ["Ruby"],
+            ["RoR"]
+        ),
+        new Job(
+            "Shortly",
+            false,
+            false,
+            "Junior Developer",
+            2,
+            "w",
+            "Full Time",
+            "Worldwide",
+            "Frontend",
+            "Junior",
+            ["HTML", "JavaScript"],
+            ["Sass"]
+        ),
+        new Job(
+            "Insure",
+            false,
+            false,
+            "Junior Frontend Developer",
+            2,
+            "w",
+            "Full Time",
+            "USA only",
+            "Frontend",
+            "Junior",
+            ["JavaScript"],
+            ["Vue", "Sass"]
+        ),
+        new Job(
+            "Eyecam Co.",
+            false,
+            false,
+            "Full Stack Engineer",
+            3,
+            "w",
+            "Full Time",
+            "Worldwide",
+            "Fullstack",
+            "Midweight",
+            ["JavaScript", "Python"],
+            ["Django"]
+        ),
+        new Job(
+            "The Air Filter Company",
+            false,
+            false,
+            "Front-end Dev",
+            1,
+            "mo",
+            "Part Time",
+            "Worldwide",
+            "Frontend",
+            "Junior",
+            ["JavaScript"],
+            ["React", "Sass"]
         )
     ];
     return {
         returnJobs: function() {
             return jobs;
-        },
-        getNextId: function() {
-            return nextId;
-        },
-        incrementId: function() {
-            nextId++;
         },
         assignId: function() {
             nextId++;
@@ -66,7 +187,6 @@ function displayJobs() {
     let jobs = JOBS.returnJobs();
     jobs.forEach(job => {
         job.id = JOBS.assignId();
-        JOBS.incrementId();
         $("#jobs-container").append(`
             <job-listing id="job-${job.id}"
                 data-role="${job.role}"
