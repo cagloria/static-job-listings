@@ -7,12 +7,13 @@ var JOBS = (function() {
             "Photosnap",
             true,
             true,
-            "Senior",
-            "Frontend Developer",
+            "Senior Frontend Developer",
             1,
             "d",
             "Full Time",
             "USA only",
+            "Frontend",
+            "Senior",
             ["HTML", "CSS", "JavaScript"],
             null
         )
@@ -26,6 +27,10 @@ var JOBS = (function() {
         },
         incrementId: function() {
             nextId++;
+        },
+        assignId: function() {
+            nextId++;
+            return nextId;
         }
     };
 })();
@@ -34,24 +39,25 @@ function Job(
     company,
     isNew,
     isFeatured,
-    level,
-    role,
+    title,
     timeNumber,
     timeUnit,
     shift,
     location,
+    role,
+    level,
     languages,
     tools
 ) {
     this.company = company;
     this.isNew = isNew;
-    this.isFeatured, isFeatured;
-    this.title = level + " " + role;
-    this.level = level;
-    this.role = role;
+    this.isFeatured = isFeatured;
+    this.title = title;
     this.time = timeNumber + timeUnit + " ago";
     this.shift = shift;
     this.location = location;
+    this.role = role;
+    this.level = level;
     this.languages = languages;
     this.tools = tools;
 }
@@ -59,9 +65,10 @@ function Job(
 function displayJobs() {
     let jobs = JOBS.returnJobs();
     jobs.forEach(job => {
-        let id = jobs.indexOf(job);
+        job.id = JOBS.assignId();
+        JOBS.incrementId();
         $("#jobs-container").append(`
-            <job-listing id="job-${id}"
+            <job-listing id="job-${job.id}"
                 data-role="${job.role}"
                 data-level="${job.level}"
                 data-languages="${job.languages}"
