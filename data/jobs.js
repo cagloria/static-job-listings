@@ -188,7 +188,9 @@ function displayJobs() {
     jobs.forEach(job => {
         job.id = JOBS.assignId();
         $("#jobs-container").append(`
-            <job-listing id="job-${job.id}"
+            <job-listing
+                id="job-${job.id}"
+                class="job-listing"
                 data-role="${job.role}"
                 data-level="${job.level}"
                 data-languages="${job.languages}"

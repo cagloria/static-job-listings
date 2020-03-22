@@ -1,0 +1,8 @@
+.job-listing {
+  background-color: white;
+  border-left: 5px solid #5ba4a4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+}

@@ -34,14 +34,10 @@ class JobListing extends HTMLElement {
         `;
 
         let languagesStr = this.getDataList(languages, "languages");
-        if (languagesStr !== undefined) {
-            htmlText += languagesStr;
-        }
-
         let toolsStr = this.getDataList(tools, "tools");
-        if (toolsStr !== undefined) {
-            htmlText += toolsStr;
-        }
+        
+        htmlText += languagesStr === undefined ? "" : languagesStr;
+        htmlText += toolsStr === undefined ? "" : toolsStr;
 
         this.innerHTML = htmlText + "</ul>";
     }

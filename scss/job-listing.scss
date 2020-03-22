@@ -1,0 +1,13 @@
+$primary: hsl(180, 29%, 50%);
+$neutral-listing-white-bg: hsl(0, 0%, 100%);
+$neutral-bg: hsl(180, 52%, 96%);
+$neutral-tags: hsl(180, 31%, 95%);
+$neutral-featured-tag: hsl(180, 8%, 52%);
+$neutral-3: hsl(180, 14%, 20%);
+
+.job-listing {
+    background-color: $neutral-listing-white-bg;
+    border-left: 5px solid $primary;
+    display: flex;
+    margin-bottom: 10px;
+}

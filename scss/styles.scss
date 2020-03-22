@@ -1,0 +1,18 @@
+$primary: hsl(180, 29%, 50%);
+$neutral-bg: hsl(180, 52%, 96%);
+$neutral-tags: hsl(180, 31%, 95%);
+$neutral-featured-tag: hsl(180, 8%, 52%);
+$neutral-3: hsl(180, 14%, 20%);
+
+body {
+    margin: 0;
+    background-color: $neutral-bg;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    a {
+        color: hsl(228, 45%, 44%);
+    }
+}
