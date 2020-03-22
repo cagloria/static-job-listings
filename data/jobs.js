@@ -146,9 +146,16 @@ var JOBS = (function() {
         )
     ];
     return {
-        returnJobs: function() {
+        /**
+         * @returns Array of Job objects
+         */
+        getJobs: function() {
             return jobs;
         },
+        /**
+         * Increments the global id and assigns it to the next job.
+         * @returns New id to assign to job
+         */
         assignId: function() {
             nextId++;
             return nextId;
@@ -184,7 +191,7 @@ function Job(
 }
 
 function displayJobs() {
-    let jobs = JOBS.returnJobs();
+    let jobs = JOBS.getJobs();
     jobs.forEach(job => {
         job.id = JOBS.assignId();
         $("#jobs-container").append(`
