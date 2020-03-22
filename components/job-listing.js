@@ -16,20 +16,20 @@ class JobListing extends HTMLElement {
         let jobObj = JOBS.returnJobs().find(job => job.id === id);
 
         let topText = `
-            ${jobObj.company}
-            ${jobObj.isNew ? " New!" : ""}
-            ${jobObj.isFeatured ? " Featured" : ""}
+            <span class='job-listing__company'>${jobObj.company}</span>
+            ${jobObj.isNew ? "<span class='job-listing__new'>New!</span>" : ""}
+            ${jobObj.isFeatured ? "<span class='job-listing__featured'>Featured</span>" : ""}
         `;
 
         let logoPath = this.getCompanyLogo(jobObj.company);
 
         let htmlText = `
-            <img width="88" height="88" src="${logoPath}" />
-            <p>${topText}</p>
-            <p>${jobObj.title}</p>
-            <p>${jobObj.time} - ${jobObj.shift} - ${jobObj.location}</p>
-            <ul>
-                <li>${role}</li>
+            <img class="job-listing__logo" width="88" height="88" src="${logoPath}" />
+            <p class="job-listing__top">${topText}</p>
+            <p class="job-listing__title">${jobObj.title}</p>
+            <p class="job-listing__info">${jobObj.time} - ${jobObj.shift} - ${jobObj.location}</p>
+            <ul class="job-listing__categories-list">
+                <li>${role}</a></li>
                 <li>${level}</li>
         `;
 

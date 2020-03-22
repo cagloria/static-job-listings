@@ -1,8 +1,60 @@
 .job-listing {
-  background-color: white;
+  display: -ms-grid;
+  display: grid;
+  margin-bottom: 10px;
   border-left: 5px solid #5ba4a4;
+  border-radius: 5px;
+  background-color: white;
+  -ms-grid-columns: (auto)[3];
+      grid-template-columns: repeat(3, auto);
+  -ms-grid-rows: (auto)[3];
+      grid-template-rows: repeat(3, auto);
+}
+
+.job-listing__logo {
+  grid-row: 1 / -1;
+  -ms-grid-column: 1;
+  grid-column: 1;
+}
+
+.job-listing__top {
+  margin: 5px 0;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+.job-listing__title {
+  margin: 5px 0;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+.job-listing__info {
+  margin: 5px 0;
+  -ms-grid-row: 3;
+  grid-row: 3;
+  -ms-grid-column: 2;
+  grid-column: 2;
+}
+
+.job-listing__categories-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 10px;
+  margin: 5px 0;
+  padding-left: 0;
+  list-style-type: none;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  -ms-grid-column: 3;
+  grid-column: 3;
+}
+
+.job-listing__categories-list li {
+  display: block;
+  margin: 0 5px;
 }
