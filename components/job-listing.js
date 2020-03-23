@@ -66,17 +66,17 @@ class JobListing extends HTMLElement {
         let htmlText = `<ul class="job-listing__categories-list">`;
 
         htmlText += `<li>
-            <button onclick="filterJobs('role', '${role}')">${role}</button>
+            <button onclick="createFilter('role', '${role}')">${role}</button>
         </li>`;
         htmlText += `<li>
-            <button onclick="filterJobs('level', '${level}')">${level}</button>
+            <button onclick="createFilter('level', '${level}')">${level}</button>
         </li>`;
 
         if (languages !== null) {
             languages.forEach(element => {
                 htmlText += `<li>
                     <button 
-                        onclick="filterJobs('languages', '${element}')">
+                        onclick="createFilter('languages', '${element}')">
                         ${element}</button>
                 </li>`;
             });
@@ -85,7 +85,7 @@ class JobListing extends HTMLElement {
             tools.forEach(element => {
                 htmlText += `<li>
                 <button 
-                    onclick="filterJobs('tools', '${element}')">
+                    onclick="createFilter('tools', '${element}')">
                     ${element}</button>
             </li>`;
             });

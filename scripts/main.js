@@ -1,3 +1,3 @@
 window.onload = function() {
-    this.displayJobs();
+    this.createJobListings();
 };
