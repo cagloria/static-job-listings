@@ -1,6 +1,6 @@
 "use strict";
 
-var JOBS = (function() {
+var LISTING = (function() {
     let nextId = 0;
 
     var jobs = [
@@ -163,6 +163,21 @@ var JOBS = (function() {
     };
 })();
 
+/**
+ * Creates a Job object to store in LISTING.jobs.
+ * @param {String} company
+ * @param {Boolean} isNew
+ * @param {Boolean} isFeatured
+ * @param {String} title
+ * @param {Number} timeNumber
+ * @param {String} timeUnit
+ * @param {String} shift
+ * @param {String} location
+ * @param {String} role
+ * @param {String} level
+ * @param {Array} languages
+ * @param {Array} tools
+ */
 function Job(
     company,
     isNew,
@@ -190,10 +205,13 @@ function Job(
     this.tools = tools;
 }
 
+/**
+ * Creates a job-listing element for each job in LISTING.jobs.
+ */
 function displayJobs() {
-    let jobs = JOBS.getJobs();
+    let jobs = LISTING.getJobs();
     jobs.forEach(job => {
-        job.id = JOBS.assignId();
+        job.id = LISTING.assignId();
         $("#jobs-container").append(`
             <job-listing
                 id="job-${job.id}"
@@ -205,4 +223,11 @@ function displayJobs() {
                 </job-listing>
         `);
     });
+}
+
+function filterJobs(dataset, category) {
+    let $jobListings = $("#jobs-container").children(`:not(
+        [data-${dataset}*='${category}'])`);
+    $jobListings.css("display", "none");
+    // TODO: Enable to work with languages/tools
 }

@@ -18,7 +18,7 @@ class JobListing extends HTMLElement {
             this.dataset.tools === "null"
                 ? null
                 : this.dataset.tools.split(",");
-        let jobObj = JOBS.getJobs().find(job => job.id === id);
+        let jobObj = LISTING.getJobs().find(job => job.id === id);
 
         let logoPath = this.getCompanyLogoPath(jobObj.company);
         let isNewText = jobObj.isNew
