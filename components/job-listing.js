@@ -65,17 +65,29 @@ class JobListing extends HTMLElement {
     createCategoriesArr(role, level, languages, tools) {
         let htmlText = `<ul class="job-listing__categories-list">`;
 
-        htmlText += `<li>${role}</li>`;
-        htmlText += `<li>${level}</li>`;
+        htmlText += `<li>
+            <button onclick="filterJobs('role', '${role}')">${role}</button>
+        </li>`;
+        htmlText += `<li>
+            <button onclick="filterJobs('level', '${level}')">${level}</button>
+        </li>`;
 
         if (languages !== null) {
             languages.forEach(element => {
-                htmlText += `<li>${element}</li>`;
+                htmlText += `<li>
+                    <button 
+                        onclick="filterJobs('languages', '${element}')">
+                        ${element}</button>
+                </li>`;
             });
         }
         if (tools !== null) {
             tools.forEach(element => {
-                htmlText += `<li>${element}</li>`;
+                htmlText += `<li>
+                <button 
+                    onclick="filterJobs('tools', '${element}')">
+                    ${element}</button>
+            </li>`;
             });
         }
 
