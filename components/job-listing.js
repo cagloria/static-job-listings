@@ -39,7 +39,6 @@ class JobListing extends HTMLElement {
             <p class="job-listing__top">${topText}</p>
             <p class="job-listing__title">${jobObj.title}</p>
             <p class="job-listing__info">${jobObj.time} - ${jobObj.shift} - ${jobObj.location}</p>
-            <ul class="job-listing__categories-list">
         `;
 
         let categories = this.createCategoriesArr(
@@ -48,11 +47,8 @@ class JobListing extends HTMLElement {
             languages,
             tools
         );
-        categories.forEach(element => {
-            htmlText += `<li>${element}</li>`;
-        });
 
-        htmlText += `</ul>`;
+        htmlText += categories;
 
         this.innerHTML = htmlText;
     }
@@ -67,15 +63,25 @@ class JobListing extends HTMLElement {
      * @returns                 Concatenated array
      */
     createCategoriesArr(role, level, languages, tools) {
-        let arr = role.concat(level);
+        let htmlText = `<ul class="job-listing__categories-list">`;
+
+        htmlText += `<li>${role}</li>`;
+        htmlText += `<li>${level}</li>`;
+
         if (languages !== null) {
-            arr = arr.concat(languages);
+            languages.forEach(element => {
+                htmlText += `<li>${element}</li>`;
+            });
         }
         if (tools !== null) {
-            arr = arr.concat(tools);
+            tools.forEach(element => {
+                htmlText += `<li>${element}</li>`;
+            });
         }
 
-        return arr;
+        htmlText += `</ul>`;
+
+        return htmlText;
     }
 
     /**
