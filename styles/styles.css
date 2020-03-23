@@ -1,6 +1,19 @@
 body {
+  font-family: "Spartan", sans-serif;
   margin: 0;
   background-color: #effafa;
+}
+
+button {
+  font-family: "Spartan", sans-serif;
+}
+
+.banner {
+  height: 160px;
+  background-color: #5ba4a4;
+  background-image: url("../images/bg-header-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .filter-container {
@@ -30,4 +43,10 @@ body {
 
 .attribution a {
   color: #3e52a3;
+}
+
+@media only screen and (max-width: 768px) {
+  .banner {
+    background-image: url("../images/bg-header-mobile.svg");
+  }
 }
