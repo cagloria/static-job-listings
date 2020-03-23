@@ -3,6 +3,17 @@ body {
   background-color: #effafa;
 }
 
+#filter-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+}
+
+#filter-container li {
+  padding-right: 30px;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;

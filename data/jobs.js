@@ -3,6 +3,8 @@
 var LISTING = (function() {
     let nextId = 0;
 
+    var filters = [];
+
     var jobs = [
         new Job(
             "Photosnap",
@@ -159,6 +161,17 @@ var LISTING = (function() {
         assignId: function() {
             nextId++;
             return nextId;
+        },
+        /**
+         * Checks if the category is already a filter. If not, it's added to LISTING.filters and #filter-container.
+         * @param {String} category Category to filter
+         */
+        isNewFilter: function(category) {
+            if (filters.includes(category)) {
+                return false;
+            }
+            filters.push(category);
+            return true;
         }
     };
 })();
@@ -226,8 +239,12 @@ function displayJobs() {
 }
 
 function filterJobs(dataset, category) {
-    let $jobListings = $("#jobs-container").children(`:not(
-        [data-${dataset}*='${category}'])`);
-    $jobListings.css("display", "none");
-    // TODO: Enable to work with languages/tools
+    if (LISTING.isNewFilter(category)) {
+        let $filterContainer = $("#filter-container");
+        let $jobListings = $("#jobs-container").children(`:not(
+            [data-${dataset}*='${category}'])`);
+
+        $jobListings.css("display", "none");
+        $filterContainer.append(`<li>${category}</li>`);
+    }
 }
