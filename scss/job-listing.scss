@@ -1,48 +1,106 @@
 $primary: hsl(180, 29%, 50%);
-$neutral-listing-white-bg: hsl(0, 0%, 100%);
+$white: hsl(0, 0%, 100%);
+$neutral-light: hsl(180, 31%, 95%);
+$neutral-dark: hsl(180, 8%, 52%);
+$dark: hsl(180, 14%, 20%);
 
 .job-listing {
     display: grid;
     margin-bottom: 10px;
     border-left: 5px solid $primary;
     border-radius: 5px;
-    background-color: $neutral-listing-white-bg;
-    grid-template-columns: 130px repeat(2, auto);
-    grid-template-rows: repeat(3, auto);
+    background-color: $white;
+    grid-template-columns: 150px repeat(2, auto);
+    grid-template-rows: repeat(3, 50px);
+    max-width: 1100px;
+    margin: 24px auto;
+    box-shadow: 0 10px 8px hsla(180, 29%, 50%, 0.1);
     &__logo {
+        margin: auto;
+
         grid-row: 1 / -1;
         grid-column: 1;
     }
 
     &__top {
-        margin: 5px 0;
+        font-size: 15px;
+        font-weight: bold;
+        align-self: end;
+        display: flex;
+        align-items: baseline;
+
+        margin: 0;
         grid-row: 1;
         grid-column: 2;
     }
 
+    &__company {
+        color: $primary;
+    }
+
+    &__new,
+    &__featured {
+        font-size: 9px;
+        padding: 8px 9px 6px;
+        display: block;
+        text-transform: uppercase;
+
+        border-radius: 20px;
+        color: $white;
+    }
+
+    &__new {
+        margin: 0 6px 0 17px;
+        background-color: $primary;
+    }
+
+    &__featured {
+        background-color: $dark;
+    }
+
     &__title {
-        margin: 5px 0;
+        align-self: center;
+        color: $dark;
+        font-weight: bold;
+        font-size: 17px;
+
+        margin: 0;
         grid-row: 2;
         grid-column: 2;
     }
 
     &__info {
-        margin: 5px 0;
+        font-size: 15px;
+        align-self: start;
+        margin: 0;
         grid-row: 3;
         grid-column: 2;
+        color: $neutral-dark;
     }
 
     &__categories-list {
         display: flex;
-
-        margin: 5px 0;
+        justify-self: end;
+        margin: 0 40px 0 0;
+        align-self: center;
         padding-left: 0;
         list-style-type: none;
         grid-row: 2;
         grid-column: 3;
+
         li {
-            display: block;
-            margin: 0 5px;
+            &:not(:last-of-type) {
+                margin-right: 18px;
+            }
+        }
+        button {
+            background-color: $neutral-light;
+            border: 0;
+            height: 30px;
+            font-weight: bold;
+            color: $primary;
+            border-radius: 5px;
+            padding: 0 9px;
         }
     }
 }

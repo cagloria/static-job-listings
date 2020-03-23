@@ -5,28 +5,71 @@
   border-left: 5px solid #5ba4a4;
   border-radius: 5px;
   background-color: white;
-  -ms-grid-columns: 130px (auto)[2];
-      grid-template-columns: 130px repeat(2, auto);
-  -ms-grid-rows: (auto)[3];
-      grid-template-rows: repeat(3, auto);
+  -ms-grid-columns: 150px (auto)[2];
+      grid-template-columns: 150px repeat(2, auto);
+  -ms-grid-rows: (50px)[3];
+      grid-template-rows: repeat(3, 50px);
+  max-width: 1100px;
+  margin: 24px auto;
+  -webkit-box-shadow: 0 10px 8px rgba(91, 164, 164, 0.1);
+          box-shadow: 0 10px 8px rgba(91, 164, 164, 0.1);
 }
 
 .job-listing__logo {
+  margin: auto;
   grid-row: 1 / -1;
   -ms-grid-column: 1;
   grid-column: 1;
 }
 
 .job-listing__top {
-  margin: 5px 0;
+  font-size: 15px;
+  font-weight: bold;
+  -ms-flex-item-align: end;
+      align-self: end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  margin: 0;
   -ms-grid-row: 1;
   grid-row: 1;
   -ms-grid-column: 2;
   grid-column: 2;
 }
 
+.job-listing__company {
+  color: #5ba4a4;
+}
+
+.job-listing__new, .job-listing__featured {
+  font-size: 9px;
+  padding: 8px 9px 6px;
+  display: block;
+  text-transform: uppercase;
+  border-radius: 20px;
+  color: white;
+}
+
+.job-listing__new {
+  margin: 0 6px 0 17px;
+  background-color: #5ba4a4;
+}
+
+.job-listing__featured {
+  background-color: #2c3a3a;
+}
+
 .job-listing__title {
-  margin: 5px 0;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: #2c3a3a;
+  font-weight: bold;
+  font-size: 17px;
+  margin: 0;
   -ms-grid-row: 2;
   grid-row: 2;
   -ms-grid-column: 2;
@@ -34,18 +77,26 @@
 }
 
 .job-listing__info {
-  margin: 5px 0;
+  font-size: 15px;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  margin: 0;
   -ms-grid-row: 3;
   grid-row: 3;
   -ms-grid-column: 2;
   grid-column: 2;
+  color: #7b8e8e;
 }
 
 .job-listing__categories-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 5px 0;
+  justify-self: end;
+  margin: 0 40px 0 0;
+  -ms-flex-item-align: center;
+      align-self: center;
   padding-left: 0;
   list-style-type: none;
   -ms-grid-row: 2;
@@ -54,7 +105,16 @@
   grid-column: 3;
 }
 
-.job-listing__categories-list li {
-  display: block;
-  margin: 0 5px;
+.job-listing__categories-list li:not(:last-of-type) {
+  margin-right: 18px;
+}
+
+.job-listing__categories-list button {
+  background-color: #eef6f6;
+  border: 0;
+  height: 30px;
+  font-weight: bold;
+  color: #5ba4a4;
+  border-radius: 5px;
+  padding: 0 9px;
 }
