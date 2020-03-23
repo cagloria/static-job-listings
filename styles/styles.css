@@ -3,14 +3,23 @@ body {
   background-color: #effafa;
 }
 
-#filter-container {
+.filter-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#filter-list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   list-style-type: none;
 }
 
-#filter-container li {
+#filter-list li {
   padding-right: 30px;
 }
 

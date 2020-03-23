@@ -6,7 +6,12 @@ body {
     background-color: $neutral-bg;
 }
 
-#filter-container {
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#filter-list {
     display: flex;
     list-style-type: none;
     li {

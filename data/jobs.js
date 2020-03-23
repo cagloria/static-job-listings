@@ -2,7 +2,6 @@
 
 var LISTING = (function() {
     let nextId = 0;
-
     var filters = [];
 
     var jobs = [
@@ -180,20 +179,20 @@ var LISTING = (function() {
          * Adds a category to LISTING.filters.
          * @param {String} category
          */
-        addFilter: function(dataset, category) {
+        addFilterObj: function(dataset, category) {
             filters.push({ dataset: dataset, category: category });
         },
         /**
          * Removes a category from LISTING.filters.
          * @param {String} removedCategory  Category to remove
          */
-        removeFilter: function(removedCategory) {
+        removeFilterObj: function(removedCategory) {
             filters = filters.filter(
                 element => element.category !== removedCategory
             );
         },
         /**
-         * @returns Returns LISTING.filters, the list of current filters
+         * @returns LISTING.filters, the list of current filters
          */
         getFilters: function() {
             return filters;
@@ -271,19 +270,19 @@ function createJobListings() {
  */
 function createFilter(dataset, category) {
     if (LISTING.isNewFilter(category)) {
-        let $filterContainer = $("#filter-container");
+        let $filterContainer = $("#filter-list");
 
-        LISTING.addFilter(dataset, category); // Adds category to LISTING.filters
+        LISTING.addFilterObj(dataset, category); // Adds category to LISTING.filters
 
-        // Creates a button of that category and places it in #filter-container
+        // Creates a button of that category and places it in #filter-list
         $filterContainer.append(
             `<li id="filter-${category}">
             <button 
-            onclick="removeFilter('${dataset}', '${category}')"
+                onclick="deleteFilter('${category}')"
             >${category}</button>
             </li>`
         );
-        
+
         updateJobListingDisplay();
     }
 }
@@ -294,7 +293,9 @@ function createFilter(dataset, category) {
 function updateJobListingDisplay() {
     let $jobListings = $("#jobs-container");
     let filtersArr = LISTING.getFilters();
+
     $jobListings.children().css("display", "grid"); // Resets display
+    updateClearButton();
 
     // Go through each element in LISTING.filters, and if a job-listing does
     // not match, set display to none
@@ -307,11 +308,34 @@ function updateJobListingDisplay() {
 
 /**
  * Deletes the filter in LISTING.filters and deletes the corresponding button.
- * @param {String} dataset  Dataset the category belongs to
  * @param {String} category Category of the filter
  */
-function removeFilter(dataset, category) {
-    LISTING.removeFilter(category);
+function deleteFilter(category) {
+    LISTING.removeFilterObj(category);
     $(`#filter-${category}`).remove();
     updateJobListingDisplay();
+}
+
+/**
+ * Clear all filters from LISTING.filters and their corresponding buttons.
+ */
+function clearFilters() {
+    let filtersArr = LISTING.getFilters();
+
+    filtersArr.forEach(element => {
+        deleteFilter(element.category);
+    });
+}
+
+/**
+ * Updates #clear-button to display only if LISTING.filters.length > 1.
+ */
+function updateClearButton() {
+    let $clearButton = $("#clear-button");
+
+    if (LISTING.getFilters().length < 1) {
+        $clearButton.css("display", "none");
+    } else {
+        $clearButton.css("display", "block");
+    }
 }
