@@ -213,10 +213,16 @@ function createJobListings() {
     let jobs = LISTING.getJobs();
     jobs.forEach(job => {
         job.id = LISTING.assignId();
+        let featuredMod = ``;
+
+        if (job.isFeatured) {
+            featuredMod = ` job-listing--featured`;
+        }
+
         $("#jobs-container").append(`
             <job-listing
                 id="job-${job.id}"
-                class="job-listing main-row"
+                class="job-listing${featuredMod} main-row"
                 data-role="${job.role}"
                 data-level="${job.level}"
                 data-languages="${job.languages}"
