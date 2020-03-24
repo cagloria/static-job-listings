@@ -253,7 +253,7 @@ function createJobListings() {
         $("#jobs-container").append(`
             <job-listing
                 id="job-${job.id}"
-                class="job-listing"
+                class="job-listing main-row"
                 data-role="${job.role}"
                 data-level="${job.level}"
                 data-languages="${job.languages}"
@@ -276,10 +276,12 @@ function createFilter(dataset, category) {
 
         // Creates a button of that category and places it in #filter-list
         $filterContainer.append(
-            `<li id="filter-${category}">
-            <button 
-                onclick="deleteFilter('${category}')"
-            >${category}</button>
+            `<li id="filter-${category}" class="filter-list__item">
+                <span class="tablet-list__tablet tablet-list__tablet--label">${category}</span>
+                <button 
+                    class="delete-filter-button"
+                    onclick="deleteFilter('${category}')"
+                ><img src="../images/icon-remove.svg"></button>
             </li>`
         );
 

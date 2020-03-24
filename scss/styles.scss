@@ -1,5 +1,8 @@
 $primary: hsl(180, 29%, 50%);
+$white: hsl(0, 0%, 100%);
+$neutral-light: hsl(180, 31%, 95%);
 $neutral-bg: hsl(180, 52%, 96%);
+$dark: hsl(180, 14%, 20%);
 
 body {
     font-family: "Spartan", sans-serif;
@@ -9,6 +12,7 @@ body {
 
 button {
     font-family: "Spartan", sans-serif;
+    cursor: pointer;
 }
 
 .banner {
@@ -19,23 +23,79 @@ button {
     background-size: cover;
 }
 
-.filter-container {
-    display: flex;
-    justify-content: space-between;
+.main-row {
+    box-sizing: border-box;
+    max-width: 1100px;
+    padding: 0 40px 0 35px;
+    background-color: $white;
+    box-shadow: 0 10px 8px hsla(180, 29%, 50%, 0.1);
 }
 
-#filter-list {
-    display: flex;
+.tablet-list {
+    display: grid;
+    margin: 0;
+    padding-left: 0;
     list-style-type: none;
-    li {
-        padding-right: 30px;
+    grid-auto-columns: auto;
+    grid-auto-rows: auto;
+    grid-auto-flow: column;
+    gap: 18px;
+    &__tablet {
+        font-size: 13px;
+        font-weight: bold;
+        padding: 8px;
+        color: $primary;
+        border: 0;
+        border-radius: 5px;
+        background-color: $neutral-light;
+        &--button-label {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
     }
+}
+
+.delete-filter-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 0;
+    border: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: $primary;
+}
+
+.filter-list__item {
+    display: flex;
+    height: 30px;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    max-width: 1100px;
+    height: 70px;
+    margin: 0 auto;
+    padding: 0 40px;
+    border-radius: 5px;
+    background-color: $white;
+}
+
+#clear-button {
+    font-weight: bold;
+    color: $primary;
+    border: 0;
+    background-color: transparent;
 }
 
 .attribution {
     font-size: 11px;
     margin-top: 60px;
-
     margin-bottom: 120px;
     text-align: center;
     a {

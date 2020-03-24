@@ -22,10 +22,10 @@ class JobListing extends HTMLElement {
 
         let logoPath = this.getCompanyLogoPath(jobObj.company);
         let isNewText = jobObj.isNew
-            ? `<span class='job-listing__new'>New!</span>`
+            ? `<span class='job-listing__new job-listing__badge'>New!</span>`
             : ``;
         let isFeaturedText = jobObj.isFeatured
-            ? `<span class='job-listing__featured'>Featured</span>`
+            ? `<span class='job-listing__featured job-listing__badge'>Featured</span>`
             : ``;
 
         let topText = `
@@ -63,19 +63,20 @@ class JobListing extends HTMLElement {
      * @returns                 Concatenated array
      */
     createCategoriesArr(role, level, languages, tools) {
-        let htmlText = `<ul class="job-listing__categories-list">`;
+        let htmlText = `<ul class="job-listing__categories-list tablet-list">`;
 
         htmlText += `<li>
-            <button onclick="createFilter('role', '${role}')">${role}</button>
+            <button class="tablet-list__tablet" onclick="createFilter('role', '${role}')">${role}</button>
         </li>`;
         htmlText += `<li>
-            <button onclick="createFilter('level', '${level}')">${level}</button>
+            <button class="tablet-list__tablet" onclick="createFilter('level', '${level}')">${level}</button>
         </li>`;
 
         if (languages !== null) {
             languages.forEach(element => {
                 htmlText += `<li>
                     <button 
+                        class="tablet-list__tablet"
                         onclick="createFilter('languages', '${element}')">
                         ${element}</button>
                 </li>`;
@@ -85,6 +86,7 @@ class JobListing extends HTMLElement {
             tools.forEach(element => {
                 htmlText += `<li>
                 <button 
+                    class="tablet-list__tablet"
                     onclick="createFilter('tools', '${element}')">
                     ${element}</button>
             </li>`;
