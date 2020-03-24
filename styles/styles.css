@@ -40,7 +40,7 @@ main {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 5px auto 0 auto;
+  margin: 75px auto 0 auto;
   grid-auto-columns: minmax(auto, 1100px);
   grid-auto-rows: auto;
   gap: 24px;
