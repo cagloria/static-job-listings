@@ -21,10 +21,25 @@ button {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   max-width: 1100px;
-  padding: 0 40px 0 35px;
+  padding: 0 40px;
+  border-radius: 5px;
   background-color: white;
   -webkit-box-shadow: 0 10px 8px rgba(91, 164, 164, 0.1);
           box-shadow: 0 10px 8px rgba(91, 164, 164, 0.1);
+}
+
+.jobs-container {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-columns: minmax(auto, 1100px);
+  grid-auto-rows: auto;
+  gap: 24px;
+  grid-auto-flow: row;
+  margin-top: 40px;
+  margin: 40px auto 0 auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .tablet-list {
@@ -52,6 +67,11 @@ button {
 .tablet-list__tablet--label {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+}
+
+.tablet-list__tablet:not(.tablet-list__tablet--label):hover {
+  color: #eef6f6;
+  background-color: #5ba4a4;
 }
 
 .attribution {

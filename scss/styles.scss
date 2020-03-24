@@ -27,9 +27,21 @@ button {
 .main-row {
     box-sizing: border-box;
     max-width: 1100px;
-    padding: 0 40px 0 35px;
+    padding: 0 40px;
+    border-radius: 5px;
     background-color: $white;
     box-shadow: 0 10px 8px hsla(180, 29%, 50%, 0.1);
+}
+
+.jobs-container {
+    display: grid;
+    grid-auto-columns: minmax(auto, 1100px);
+    grid-auto-rows: auto;
+    gap: 24px;
+    grid-auto-flow: row;
+    margin-top: 40px;
+    margin: 40px auto 0 auto;
+    width: fit-content;
 }
 
 .tablet-list {
@@ -52,6 +64,11 @@ button {
         &--label {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
+        }
+
+        &:not(&--label):hover {
+            color: $neutral-light;
+            background-color: $primary;
         }
     }
 }

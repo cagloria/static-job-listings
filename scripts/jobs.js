@@ -227,7 +227,7 @@ function createJobListings() {
 }
 
 /**
- * Updates job-listing elements to display based on filters from LISTING.filters.
+ * Updates job-listing elements to display based on filters from FILTERS.filters.
  */
 function updateJobListingDisplay() {
     let $jobListings = $("#jobs-container");
@@ -236,7 +236,7 @@ function updateJobListingDisplay() {
     $jobListings.children().css("display", "grid"); // Resets display
     updateClearButton();
 
-    // Go through each element in LISTING.filters, and if a job-listing does
+    // Go through each element in FILTERS.filters, and if a job-listing does
     // not match, set display to none
     filtersArr.forEach(element => {
         $jobListings

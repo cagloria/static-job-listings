@@ -1,19 +1,16 @@
 $primary: hsl(180, 29%, 50%);
-$white: hsl(0, 0%, 100%);
+$neutral-light: hsl(180, 31%, 95%);
 $neutral-dark: hsl(180, 8%, 52%);
 $dark: hsl(180, 14%, 20%);
 
 .job-listing {
     display: grid;
-    margin: 24px auto;
     height: 150px;
-    margin-bottom: 10px;
     border-left: 5px solid $primary;
-    border-radius: 5px;
     grid-template-columns: 115px repeat(2, auto);
     grid-template-rows: repeat(3, 50px);
     &__logo {
-        margin: auto;
+        margin: auto 0;
         grid-row: 1 / -1;
         grid-column: 1;
     }
@@ -38,7 +35,7 @@ $dark: hsl(180, 14%, 20%);
         display: block;
         padding: 8px 9px 6px;
         text-transform: uppercase;
-        color: $white;
+        color: $neutral-light;
         border-radius: 20px;
         &--new {
             margin: 0 6px 0 17px;
@@ -52,12 +49,17 @@ $dark: hsl(180, 14%, 20%);
     &__title {
         font-size: 17px;
         font-weight: bold;
-
         align-self: center;
         margin: 0;
-        color: $dark;
         grid-row: 2;
         grid-column: 2;
+        a {
+            color: $dark;
+            text-decoration-line: none;
+            &:hover {
+                color: $primary;
+            }
+        }
     }
 
     &__info {
@@ -71,7 +73,6 @@ $dark: hsl(180, 14%, 20%);
 
     &__categories-list {
         align-self: center;
-
         justify-self: end;
         grid-row: 2;
         grid-column: 3;

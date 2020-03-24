@@ -1,3 +1,24 @@
+.filter-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 70px;
+  margin: 0 auto;
+}
+
+.filter-list__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+}
+
 .delete-filter-button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -17,31 +38,8 @@
   background-color: #5ba4a4;
 }
 
-.filter-list__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 30px;
-}
-
-.filter-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  max-width: 1100px;
-  height: 70px;
-  margin: 0 auto;
-  padding: 0 40px;
-  border-radius: 5px;
-  background-color: white;
+.delete-filter-button:hover {
+  background-color: #2c3a3a;
 }
 
 #clear-button {
@@ -49,4 +47,9 @@
   color: #5ba4a4;
   border: 0;
   background-color: transparent;
+}
+
+#clear-button:hover {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
 }

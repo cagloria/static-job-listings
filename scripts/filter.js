@@ -20,7 +20,7 @@ var FILTERS = (function() {
         },
 
         /**
-         * Adds a category to LISTING.filters.
+         * Adds a category to FILTERS.filters.
          * @param {String} category
          */
         addFilterObj: function(dataset, category) {
@@ -28,7 +28,7 @@ var FILTERS = (function() {
         },
 
         /**
-         * Removes a category from LISTING.filters.
+         * Removes a category from FILTERS.filters.
          * @param {String} removedCategory  Category to remove
          */
         removeFilterObj: function(removedCategory) {
@@ -38,7 +38,7 @@ var FILTERS = (function() {
         },
 
         /**
-         * @returns LISTING.filters, the list of current filters
+         * @returns FILTERS.filters, the list of current filters
          */
         getFilters: function() {
             return filters;
@@ -47,7 +47,7 @@ var FILTERS = (function() {
 })();
 
 /**
- * Adds new filter to LISTING.filters and creates a filter button.
+ * Adds new filter to FILTERS.filters and creates a filter button.
  * @param {String} dataset  Data set the category belongs to
  * @param {String} category Category, chosen from the button in the container
  */
@@ -55,7 +55,7 @@ function createFilter(dataset, category) {
     if (FILTERS.isNewFilter(category)) {
         let $filterContainer = $("#filter-list");
 
-        FILTERS.addFilterObj(dataset, category); // Adds category to LISTING.filters
+        FILTERS.addFilterObj(dataset, category); // Adds category to FILTERS.filters
 
         // Creates a button of that category and places it in #filter-list
         $filterContainer.append(
@@ -73,7 +73,7 @@ function createFilter(dataset, category) {
 }
 
 /**
- * Deletes the filter in LISTING.filters and deletes the corresponding button.
+ * Deletes the filter in FILTERS.filters and deletes the corresponding button.
  * @param {String} category Category of the filter
  */
 function deleteFilter(category) {
@@ -83,7 +83,7 @@ function deleteFilter(category) {
 }
 
 /**
- * Clear all filters from LISTING.filters and their corresponding buttons.
+ * Clear all filters from FILTERS.filters and their corresponding buttons.
  */
 function clearFilters() {
     let filtersArr = FILTERS.getFilters();
@@ -94,7 +94,7 @@ function clearFilters() {
 }
 
 /**
- * Updates #clear-button to display only if LISTING.filters.length > 1.
+ * Updates #clear-button to display only if FILTERS.filters.length > 1.
  */
 function updateClearButton() {
     let $clearButton = $("#clear-button");

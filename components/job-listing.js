@@ -39,7 +39,7 @@ class JobListing extends HTMLElement {
         let htmlText = `
             <img class="job-listing__logo" width="88" height="88" src="${logoPath}" />
             <p class="job-listing__top">${topText}</p>
-            <p class="job-listing__title">${jobObj.title}</p>
+            <p class="job-listing__title"><a href="#">${jobObj.title}</a></p>
             <p class="job-listing__info">${jobObj.time} - ${jobObj.shift} - ${jobObj.location}</p>
         `;
 
