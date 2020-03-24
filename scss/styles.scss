@@ -24,9 +24,14 @@ button {
     background-size: cover;
 }
 
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
 .main-row {
     box-sizing: border-box;
-    max-width: 1100px;
     padding: 0 40px;
     border-radius: 5px;
     background-color: $white;
