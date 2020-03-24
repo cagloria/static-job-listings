@@ -1,0 +1,40 @@
+$primary: hsl(180, 29%, 50%);
+$white: hsl(0, 0%, 100%);
+
+.delete-filter-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 0;
+    border: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: $primary;
+}
+
+.filter-list__item {
+    display: flex;
+    height: 30px;
+}
+
+.filter-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    max-width: 1100px;
+    height: 70px;
+    margin: 0 auto;
+    padding: 0 40px;
+    border-radius: 5px;
+    background-color: $white;
+}
+
+#clear-button {
+    font-weight: bold;
+    color: $primary;
+    border: 0;
+    background-color: transparent;
+}

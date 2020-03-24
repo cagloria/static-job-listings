@@ -1,12 +1,12 @@
 $primary: hsl(180, 29%, 50%);
 $white: hsl(0, 0%, 100%);
-$neutral-light: hsl(180, 31%, 95%);
 $neutral-dark: hsl(180, 8%, 52%);
 $dark: hsl(180, 14%, 20%);
 
 .job-listing {
     display: grid;
     margin: 24px auto;
+    height: 150px;
     margin-bottom: 10px;
     border-left: 5px solid $primary;
     border-radius: 5px;
@@ -19,7 +19,7 @@ $dark: hsl(180, 14%, 20%);
     }
 
     &__top {
-        font-size: 15px;
+        font-size: 14px;
         font-weight: bold;
         display: flex;
         align-items: baseline;
@@ -40,15 +40,13 @@ $dark: hsl(180, 14%, 20%);
         text-transform: uppercase;
         color: $white;
         border-radius: 20px;
-    }
-
-    &__new {
-        margin: 0 6px 0 17px;
-        background-color: $primary;
-    }
-
-    &__featured {
-        background-color: $dark;
+        &--new {
+            margin: 0 6px 0 17px;
+            background-color: $primary;
+        }
+        &--featured {
+            background-color: $dark;
+        }
     }
 
     &__title {
@@ -63,7 +61,7 @@ $dark: hsl(180, 14%, 20%);
     }
 
     &__info {
-        font-size: 15px;
+        font-size: 14px;
         align-self: start;
         margin: 0;
         color: $neutral-dark;

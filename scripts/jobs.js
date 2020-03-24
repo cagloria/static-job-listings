@@ -2,8 +2,6 @@
 
 var LISTING = (function() {
     let nextId = 0;
-    var filters = [];
-
     var jobs = [
         new Job(
             "Photosnap",
@@ -153,6 +151,7 @@ var LISTING = (function() {
         getJobs: function() {
             return jobs;
         },
+
         /**
          * Increments the global id and assigns it to the next job.
          * @returns New id to assign to job
@@ -160,42 +159,6 @@ var LISTING = (function() {
         assignId: function() {
             nextId++;
             return nextId;
-        },
-        /**
-         * Checks if the category is already a filter.
-         * @param {String}  newCategory
-         * @returns         If category is a new filter
-         */
-        isNewFilter: function(newCategory) {
-            let newItem = true;
-            filters.forEach(element => {
-                if (element.category === newCategory) {
-                    newItem = false;
-                }
-            });
-            return newItem;
-        },
-        /**
-         * Adds a category to LISTING.filters.
-         * @param {String} category
-         */
-        addFilterObj: function(dataset, category) {
-            filters.push({ dataset: dataset, category: category });
-        },
-        /**
-         * Removes a category from LISTING.filters.
-         * @param {String} removedCategory  Category to remove
-         */
-        removeFilterObj: function(removedCategory) {
-            filters = filters.filter(
-                element => element.category !== removedCategory
-            );
-        },
-        /**
-         * @returns LISTING.filters, the list of current filters
-         */
-        getFilters: function() {
-            return filters;
         }
     };
 })();
@@ -264,37 +227,11 @@ function createJobListings() {
 }
 
 /**
- * Adds new filter to LISTING.filters and creates a filter button.
- * @param {String} dataset  Data set the category belongs to
- * @param {String} category Category, chosen from the button in the container
- */
-function createFilter(dataset, category) {
-    if (LISTING.isNewFilter(category)) {
-        let $filterContainer = $("#filter-list");
-
-        LISTING.addFilterObj(dataset, category); // Adds category to LISTING.filters
-
-        // Creates a button of that category and places it in #filter-list
-        $filterContainer.append(
-            `<li id="filter-${category}" class="filter-list__item">
-                <span class="tablet-list__tablet tablet-list__tablet--label">${category}</span>
-                <button 
-                    class="delete-filter-button"
-                    onclick="deleteFilter('${category}')"
-                ><img src="../images/icon-remove.svg"></button>
-            </li>`
-        );
-
-        updateJobListingDisplay();
-    }
-}
-
-/**
  * Updates job-listing elements to display based on filters from LISTING.filters.
  */
 function updateJobListingDisplay() {
     let $jobListings = $("#jobs-container");
-    let filtersArr = LISTING.getFilters();
+    let filtersArr = FILTERS.getFilters();
 
     $jobListings.children().css("display", "grid"); // Resets display
     updateClearButton();
@@ -306,38 +243,4 @@ function updateJobListingDisplay() {
             .children(`:not([data-${element.dataset}*='${element.category}'])`)
             .css("display", "none");
     });
-}
-
-/**
- * Deletes the filter in LISTING.filters and deletes the corresponding button.
- * @param {String} category Category of the filter
- */
-function deleteFilter(category) {
-    LISTING.removeFilterObj(category);
-    $(`#filter-${category}`).remove();
-    updateJobListingDisplay();
-}
-
-/**
- * Clear all filters from LISTING.filters and their corresponding buttons.
- */
-function clearFilters() {
-    let filtersArr = LISTING.getFilters();
-
-    filtersArr.forEach(element => {
-        deleteFilter(element.category);
-    });
-}
-
-/**
- * Updates #clear-button to display only if LISTING.filters.length > 1.
- */
-function updateClearButton() {
-    let $clearButton = $("#clear-button");
-
-    if (LISTING.getFilters().length < 1) {
-        $clearButton.css("display", "none");
-    } else {
-        $clearButton.css("display", "block");
-    }
 }

@@ -2,6 +2,7 @@
   display: -ms-grid;
   display: grid;
   margin: 24px auto;
+  height: 150px;
   margin-bottom: 10px;
   border-left: 5px solid #5ba4a4;
   border-radius: 5px;
@@ -19,7 +20,7 @@
 }
 
 .job-listing__top {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -49,12 +50,12 @@
   border-radius: 20px;
 }
 
-.job-listing__new {
+.job-listing__badge--new {
   margin: 0 6px 0 17px;
   background-color: #5ba4a4;
 }
 
-.job-listing__featured {
+.job-listing__badge--featured {
   background-color: #2c3a3a;
 }
 
@@ -73,7 +74,7 @@
 }
 
 .job-listing__info {
-  font-size: 15px;
+  font-size: 14px;
   -ms-flex-item-align: start;
       -ms-grid-row-align: start;
       align-self: start;

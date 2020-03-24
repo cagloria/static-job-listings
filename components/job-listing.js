@@ -22,18 +22,20 @@ class JobListing extends HTMLElement {
 
         let logoPath = this.getCompanyLogoPath(jobObj.company);
         let isNewText = jobObj.isNew
-            ? `<span class='job-listing__new job-listing__badge'>New!</span>`
+            ? `<span class='job-listing__badge job-listing__badge--new'>New!</span>`
             : ``;
         let isFeaturedText = jobObj.isFeatured
-            ? `<span class='job-listing__featured job-listing__badge'>Featured</span>`
+            ? `<span class='job-listing__badge job-listing__badge--featured'>Featured</span>`
             : ``;
 
+        // Top text = Company, new badge, featured badge
         let topText = `
             <span class='job-listing__company'>${jobObj.company}</span>
             ${isNewText}
             ${isFeaturedText}
         `;
 
+        // Company logo, title, info
         let htmlText = `
             <img class="job-listing__logo" width="88" height="88" src="${logoPath}" />
             <p class="job-listing__top">${topText}</p>
@@ -41,13 +43,13 @@ class JobListing extends HTMLElement {
             <p class="job-listing__info">${jobObj.time} - ${jobObj.shift} - ${jobObj.location}</p>
         `;
 
+        // Tablets
         let categories = this.createCategoriesArr(
             role,
             level,
             languages,
             tools
         );
-
         htmlText += categories;
 
         this.innerHTML = htmlText;
