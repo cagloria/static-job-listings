@@ -114,6 +114,7 @@ main {
     padding-left: 20px;
   }
   .jobs-container {
+    margin-top: 50px;
     gap: 40px;
   }
 }
