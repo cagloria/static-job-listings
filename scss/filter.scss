@@ -57,4 +57,10 @@ $dark: hsl(180, 14%, 20%);
         top: -30px;
         height: fit-content;
     }
+
+    .filter-list {
+        &__item {
+            margin-right: 14px;
+        }
+    }
 }

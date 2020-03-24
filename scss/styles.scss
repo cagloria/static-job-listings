@@ -113,4 +113,11 @@ main {
         margin-top: 50px;
         gap: 40px;
     }
+
+    .tablet-list {
+        padding-top: 14px;
+        &__tablet-container {
+            margin-bottom: 14px;
+        }
+    }
 }

@@ -79,4 +79,7 @@
     height: -moz-fit-content;
     height: fit-content;
   }
+  .filter-list__item {
+    margin-right: 14px;
+  }
 }

@@ -117,4 +117,10 @@ main {
     margin-top: 50px;
     gap: 40px;
   }
+  .tablet-list {
+    padding-top: 14px;
+  }
+  .tablet-list__tablet-container {
+    margin-bottom: 14px;
+  }
 }

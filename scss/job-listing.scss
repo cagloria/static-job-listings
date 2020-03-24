@@ -5,7 +5,7 @@ $dark: hsl(180, 14%, 20%);
 
 .job-listing {
     display: grid;
-    grid-template-columns: 88px repeat(2, 1fr);
+    grid-template-columns: 88px minmax(250px, 1fr) auto;
     grid-template-rows: repeat(3, 50px);
     column-gap: 25px;
     &--featured {
@@ -88,43 +88,54 @@ $dark: hsl(180, 14%, 20%);
 
 @media only screen and (max-width: 768px) {
     .job-listing {
-        padding-bottom: 18px;
-
-        grid-template-columns: 50px 1fr;
-        grid-template-rows: 75px repeat(2, 50px) auto;
+        padding-bottom: 14px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 70px repeat(2, 50px) auto;
         &__logo {
             position: relative;
-            bottom: 88px;
-
-            width: 50px;
-            height: 50px;
+            bottom: 35px;
+            width: 70px;
+            height: 70px;
+            grid-column: 1;
+            grid-row: 1;
         }
 
         &__top {
-            grid-column: 1 / -1;
+            grid-column: 1;
         }
 
         &__title {
-            grid-column: 1 / -1;
+            grid-column: 1;
         }
 
         &__info {
-            grid-column: 1 / -1;
+            grid-column: 1;
         }
 
         &__categories-list {
             align-self: start;
             justify-content: flex-start;
-
             width: 100%;
             border-top: 1px solid $neutral-dark;
             justify-self: start;
             grid-row: 4;
-            grid-column: 1 / -1;
+            grid-column: 1;
             .tablet-list__tablet-container {
-                margin-right: 18px;
+                margin-right: 14px;
                 margin-left: 0;
             }
+        }
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .job-listing {
+        grid-template-rows: 60px repeat(2, 50px) auto;
+
+        &__logo {
+            bottom: 30px;
+            width: 50px;
+            height: 50px;
         }
     }
 }
