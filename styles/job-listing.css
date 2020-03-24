@@ -117,3 +117,47 @@
 .job-listing__categories-list .tablet-list__tablet-container {
   margin-left: 18px;
 }
+
+@media only screen and (max-width: 768px) {
+  .job-listing {
+    padding-bottom: 18px;
+    -ms-grid-columns: 50px 1fr;
+        grid-template-columns: 50px 1fr;
+    -ms-grid-rows: 75px (50px)[2] auto;
+        grid-template-rows: 75px repeat(2, 50px) auto;
+  }
+  .job-listing__logo {
+    position: relative;
+    bottom: 88px;
+    width: 50px;
+    height: 50px;
+  }
+  .job-listing__top {
+    grid-column: 1 / -1;
+  }
+  .job-listing__title {
+    grid-column: 1 / -1;
+  }
+  .job-listing__info {
+    grid-column: 1 / -1;
+  }
+  .job-listing__categories-list {
+    -ms-flex-item-align: start;
+        -ms-grid-row-align: start;
+        align-self: start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    width: 100%;
+    border-top: 1px solid #7b8e8e;
+    -ms-grid-column-align: start;
+        justify-self: start;
+    -ms-grid-row: 4;
+    grid-row: 4;
+    grid-column: 1 / -1;
+  }
+  .job-listing__categories-list .tablet-list__tablet-container {
+    margin-right: 18px;
+    margin-left: 0;
+  }
+}
