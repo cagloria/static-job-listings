@@ -1,5 +1,3 @@
-"use strict";
-
 class JobListing extends HTMLElement {
     constructor() {
         super();

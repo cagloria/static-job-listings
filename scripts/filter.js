@@ -1,5 +1,3 @@
-"use strict";
-
 var FILTERS = (function() {
     var filters = [];
 

@@ -49,40 +49,6 @@ main {
     grid-auto-flow: row;
 }
 
-.tablet-list {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    height: 100%;
-    margin: 0;
-    padding-top: 18px;
-    padding-left: 0;
-    list-style-type: none;
-    &__tablet-container {
-        margin-bottom: 18px;
-    }
-
-    &__tablet {
-        font-size: 13px;
-        font-weight: bold;
-        padding: 8px;
-        color: $primary;
-        border: 0;
-        border-radius: 5px;
-        background-color: $neutral-light;
-        &--label {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-
-        &:not(&--label):hover {
-            color: $neutral-light;
-            background-color: $primary;
-        }
-    }
-}
-
 .attribution {
     font-size: 11px;
     margin-top: 60px;
@@ -112,12 +78,5 @@ main {
     .jobs-container {
         margin-top: 50px;
         gap: 40px;
-    }
-
-    .tablet-list {
-        padding-top: 14px;
-        &__tablet-container {
-            margin-bottom: 14px;
-        }
     }
 }

@@ -80,9 +80,6 @@ $dark: hsl(180, 14%, 20%);
         justify-self: end;
         grid-row: 1 / span 3;
         grid-column: 3;
-        .tablet-list__tablet-container {
-            margin-left: 18px;
-        }
     }
 }
 
@@ -120,10 +117,6 @@ $dark: hsl(180, 14%, 20%);
             justify-self: start;
             grid-row: 4;
             grid-column: 1;
-            .tablet-list__tablet-container {
-                margin-right: 14px;
-                margin-left: 0;
-            }
         }
     }
 }

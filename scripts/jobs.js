@@ -1,5 +1,3 @@
-"use strict";
-
 var LISTING = (function() {
     let nextId = 0;
     var jobs = [
