@@ -26,7 +26,8 @@ main {
 .main-row {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 0 40px;
+  padding-left: 40px;
+  padding-right: 40px;
   border-radius: 5px;
   background-color: white;
   -webkit-box-shadow: 0 10px 8px rgba(91, 164, 164, 0.1);
@@ -47,15 +48,25 @@ main {
 }
 
 .tablet-list {
-  display: -ms-grid;
-  display: grid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
   margin: 0;
+  height: 100%;
+  padding-top: 18px;
   padding-left: 0;
   list-style-type: none;
-  grid-auto-columns: auto;
-  grid-auto-rows: auto;
-  grid-auto-flow: column;
-  gap: 18px;
+}
+
+.tablet-list__tablet-container {
+  margin-bottom: 18px;
 }
 
 .tablet-list__tablet {

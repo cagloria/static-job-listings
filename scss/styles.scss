@@ -32,7 +32,8 @@ main {
 
 .main-row {
     box-sizing: border-box;
-    padding: 0 40px;
+    padding-left: 40px;
+    padding-right: 40px;
     border-radius: 5px;
     background-color: $white;
     box-shadow: 0 10px 8px hsla(180, 29%, 50%, 0.1);
@@ -49,14 +50,20 @@ main {
 }
 
 .tablet-list {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
     margin: 0;
+    height: 100%;
+    padding-top: 18px;
     padding-left: 0;
     list-style-type: none;
-    grid-auto-columns: auto;
-    grid-auto-rows: auto;
-    grid-auto-flow: column;
-    gap: 18px;
+
+    &__tablet-container {
+        margin-bottom: 18px;
+    }
+
     &__tablet {
         font-size: 13px;
         font-weight: bold;

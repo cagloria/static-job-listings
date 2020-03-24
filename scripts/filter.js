@@ -59,7 +59,7 @@ function createFilter(dataset, category) {
 
         // Creates a button of that category and places it in #filter-list
         $filterContainer.append(
-            `<li id="filter-${category}" class="filter-list__item">
+            `<li id="filter-${category}" class="filter-list__item tablet-list__tablet-container">
                 <span class="tablet-list__tablet tablet-list__tablet--label">${category}</span>
                 <button 
                     class="delete-filter-button"

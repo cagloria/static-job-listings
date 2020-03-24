@@ -11,7 +11,9 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 70px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .filter-list__item {
@@ -19,6 +21,7 @@
   display: -ms-flexbox;
   display: flex;
   height: 30px;
+  margin-right: 18px;
 }
 
 .delete-filter-button {

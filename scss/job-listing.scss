@@ -5,13 +5,13 @@ $dark: hsl(180, 14%, 20%);
 
 .job-listing {
     display: grid;
-    height: 150px;
     border-left: 5px solid $primary;
-    grid-template-columns: 115px repeat(2, auto);
+    grid-template-columns: 88px repeat(2, 1fr);
     grid-template-rows: repeat(3, 50px);
+    column-gap: 25px;
     &__logo {
         margin: auto 0;
-        grid-row: 1 / -1;
+        grid-row: 1 / span 3;
         grid-column: 1;
     }
 
@@ -74,7 +74,26 @@ $dark: hsl(180, 14%, 20%);
     &__categories-list {
         align-self: center;
         justify-self: end;
-        grid-row: 2;
+        justify-content: flex-end;
+        grid-row: 1 / span 3;
         grid-column: 3;
+
+        .tablet-list__tablet-container {
+            margin-left: 18px;
+        }
     }
 }
+
+// @media only screen and (max-width: 1024px) {
+//     .job-listing {
+//         grid-template-rows: repeat(3, 50px) auto;
+//         padding-bottom: 30px;
+
+//         &__categories-list {
+//             justify-self: start;
+//             align-self: start;
+//             grid-row: 4;
+//             grid-column: 1 / -1;
+//         }
+//     }
+// }

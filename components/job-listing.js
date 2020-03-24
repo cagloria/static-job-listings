@@ -67,16 +67,16 @@ class JobListing extends HTMLElement {
     createCategoriesArr(role, level, languages, tools) {
         let htmlText = `<ul class="job-listing__categories-list tablet-list">`;
 
-        htmlText += `<li>
+        htmlText += `<li class="tablet-list__tablet-container">
             <button class="tablet-list__tablet" onclick="createFilter('role', '${role}')">${role}</button>
         </li>`;
-        htmlText += `<li>
+        htmlText += `<li class="tablet-list__tablet-container">
             <button class="tablet-list__tablet" onclick="createFilter('level', '${level}')">${level}</button>
         </li>`;
 
         if (languages !== null) {
             languages.forEach(element => {
-                htmlText += `<li>
+                htmlText += `<li class="tablet-list__tablet-container">
                     <button 
                         class="tablet-list__tablet"
                         onclick="createFilter('languages', '${element}')">
@@ -86,7 +86,7 @@ class JobListing extends HTMLElement {
         }
         if (tools !== null) {
             tools.forEach(element => {
-                htmlText += `<li>
+                htmlText += `<li class="tablet-list__tablet-container">
                 <button 
                     class="tablet-list__tablet"
                     onclick="createFilter('tools', '${element}')">
