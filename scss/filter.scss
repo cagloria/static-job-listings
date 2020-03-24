@@ -2,7 +2,10 @@ $primary: hsl(180, 29%, 50%);
 $dark: hsl(180, 14%, 20%);
 
 .filter-container {
+    position: relative;
+    bottom: 35px;
     display: flex;
+    visibility: hidden;
     align-items: center;
     justify-content: space-between;
     height: 70px;

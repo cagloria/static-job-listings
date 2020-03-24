@@ -94,14 +94,18 @@ function clearFilters() {
 }
 
 /**
- * Updates #clear-button to display only if FILTERS.filters.length > 1.
+ * Updates #clear-button and #filter-container to display only if
+ * FILTERS.filters.length > 1.
  */
-function updateClearButton() {
+function updateFilterDisplay() {
     let $clearButton = $("#clear-button");
+    let $filterContainer = $("#filter-container");
 
     if (FILTERS.getFilters().length < 1) {
         $clearButton.css("display", "none");
+        $filterContainer.css("visibility", "hidden");
     } else {
         $clearButton.css("display", "block");
+        $filterContainer.css("visibility", "visible");
     }
 }

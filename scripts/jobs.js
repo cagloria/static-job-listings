@@ -234,7 +234,7 @@ function updateJobListingDisplay() {
     let filtersArr = FILTERS.getFilters();
 
     $jobListings.children().css("display", "grid"); // Resets display
-    updateClearButton();
+    updateFilterDisplay();
 
     // Go through each element in FILTERS.filters, and if a job-listing does
     // not match, set display to none
