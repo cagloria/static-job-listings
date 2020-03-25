@@ -267,19 +267,19 @@
   list-style-type: none;
 }
 
-.tablet-list__tablet-container {
+.tablet-list__li {
   height: 30px;
   margin-bottom: 18px;
 }
 
-.tablet-list__tablet-container--filter {
+.tablet-list__li--filter {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-right: 18px;
 }
 
-.tablet-list__tablet-container--job {
+.tablet-list__li--job {
   margin-left: 18px;
 }
 
@@ -310,13 +310,13 @@
   .tablet-list {
     padding-top: 14px;
   }
-  .tablet-list__tablet-container {
+  .tablet-list__li {
     margin-bottom: 14px;
   }
-  .tablet-list__tablet-container--filter {
+  .tablet-list__li--filter {
     margin-right: 14px;
   }
-  .tablet-list__tablet-container--job {
+  .tablet-list__li--job {
     margin-right: 14px;
     margin-left: 0;
   }
@@ -341,7 +341,8 @@ button {
   background-size: cover;
 }
 
-main {
+main,
+footer {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 50px;

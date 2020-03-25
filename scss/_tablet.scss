@@ -1,9 +1,5 @@
 $primary: hsl(180, 29%, 50%);
-$white: hsl(0, 0%, 100%);
 $neutral-light: hsl(180, 31%, 95%);
-$neutral-bg: hsl(180, 52%, 96%);
-$neutral-dark: hsl(180, 8%, 52%);
-$dark: hsl(180, 14%, 20%);
 
 .tablet-list {
     display: flex;
@@ -15,8 +11,7 @@ $dark: hsl(180, 14%, 20%);
     padding-top: 18px;
     padding-left: 0;
     list-style-type: none;
-
-    &__tablet-container {
+    &__li {
         height: 30px;
         margin-bottom: 18px;
         &--filter {
@@ -56,7 +51,7 @@ $dark: hsl(180, 14%, 20%);
     .tablet-list {
         padding-top: 14px;
 
-        &__tablet-container {
+        &__li {
             margin-bottom: 14px;
 
             &--filter {
