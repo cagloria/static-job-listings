@@ -28,14 +28,6 @@
   height: fit-content;
 }
 
-.filter-list__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 30px;
-  margin-right: 18px;
-}
-
 .delete-filter-button {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -59,14 +51,14 @@
   background-color: #2c3a3a;
 }
 
-#clear-button {
+.clear-button {
   font-weight: bold;
   color: #5ba4a4;
   border: 0;
   background-color: transparent;
 }
 
-#clear-button:hover {
+.clear-button:hover {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
 }
@@ -78,9 +70,6 @@
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-  }
-  .filter-list__item {
-    margin-right: 14px;
   }
 }
 
@@ -184,7 +173,7 @@
   grid-column: 2;
 }
 
-.job-listing__categories-list {
+.job-listing .tablet-list {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -230,7 +219,7 @@
     -ms-grid-column: 1;
     grid-column: 1;
   }
-  .job-listing__categories-list {
+  .job-listing .tablet-list {
     -ms-flex-item-align: start;
         -ms-grid-row-align: start;
         align-self: start;
@@ -279,7 +268,19 @@
 }
 
 .tablet-list__tablet-container {
+  height: 30px;
   margin-bottom: 18px;
+}
+
+.tablet-list__tablet-container--filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 18px;
+}
+
+.tablet-list__tablet-container--job {
+  margin-left: 18px;
 }
 
 .tablet-list__tablet {
@@ -288,22 +289,21 @@
   padding: 8px;
   color: #5ba4a4;
   border: 0;
-  border-radius: 5px;
   background-color: #eef6f6;
 }
 
-.tablet-list__tablet--label {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+.tablet-list__tablet--filter {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
-.tablet-list__tablet:not(.tablet-list__tablet--label):hover {
+.tablet-list__tablet--job {
+  border-radius: 5px;
+}
+
+.tablet-list__tablet:not(.tablet-list__tablet--filter):hover {
   color: #eef6f6;
   background-color: #5ba4a4;
-}
-
-.job-listing__categories-list .tablet-list__tablet-container {
-  margin-left: 18px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -313,7 +313,10 @@
   .tablet-list__tablet-container {
     margin-bottom: 14px;
   }
-  .job-listing__categories-list .tablet-list__tablet-container {
+  .tablet-list__tablet-container--filter {
+    margin-right: 14px;
+  }
+  .tablet-list__tablet-container--job {
     margin-right: 14px;
     margin-left: 0;
   }

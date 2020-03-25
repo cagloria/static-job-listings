@@ -15,8 +15,18 @@ $dark: hsl(180, 14%, 20%);
     padding-top: 18px;
     padding-left: 0;
     list-style-type: none;
+
     &__tablet-container {
+        height: 30px;
         margin-bottom: 18px;
+        &--filter {
+            display: flex;
+            margin-right: 18px;
+        }
+
+        &--job {
+            margin-left: 18px;
+        }
     }
 
     &__tablet {
@@ -25,24 +35,19 @@ $dark: hsl(180, 14%, 20%);
         padding: 8px;
         color: $primary;
         border: 0;
-        border-radius: 5px;
         background-color: $neutral-light;
-        &--label {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
+        &--filter {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
         }
 
-        &:not(&--label):hover {
+        &--job {
+            border-radius: 5px;
+        }
+
+        &:not(&--filter):hover {
             color: $neutral-light;
             background-color: $primary;
-        }
-    }
-}
-
-.job-listing {
-    &__categories-list {
-        .tablet-list__tablet-container {
-            margin-left: 18px;
         }
     }
 }
@@ -50,14 +55,15 @@ $dark: hsl(180, 14%, 20%);
 @media only screen and (max-width: 768px) {
     .tablet-list {
         padding-top: 14px;
+
         &__tablet-container {
             margin-bottom: 14px;
-        }
-    }
 
-    .job-listing {
-        &__categories-list {
-            .tablet-list__tablet-container {
+            &--filter {
+                margin-right: 14px;
+            }
+
+            &--job {
                 margin-right: 14px;
                 margin-left: 0;
             }

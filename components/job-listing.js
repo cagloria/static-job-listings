@@ -63,20 +63,20 @@ class JobListing extends HTMLElement {
      * @returns                 Concatenated array
      */
     createCategoriesArr(role, level, languages, tools) {
-        let htmlText = `<ul class="job-listing__categories-list tablet-list">`;
+        let htmlText = `<ul class="tablet-list">`;
 
-        htmlText += `<li class="tablet-list__tablet-container">
-            <button class="tablet-list__tablet" onclick="createFilter('role', '${role}')">${role}</button>
+        htmlText += `<li class="tablet-list__tablet-container tablet-list__tablet-container--job">
+            <button class="tablet-list__tablet tablet-list__tablet--job" onclick="createFilter('role', '${role}')">${role}</button>
         </li>`;
-        htmlText += `<li class="tablet-list__tablet-container">
-            <button class="tablet-list__tablet" onclick="createFilter('level', '${level}')">${level}</button>
+        htmlText += `<li class="tablet-list__tablet-container tablet-list__tablet-container--job">
+            <button class="tablet-list__tablet tablet-list__tablet--job" onclick="createFilter('level', '${level}')">${level}</button>
         </li>`;
 
         if (languages !== null) {
             languages.forEach(element => {
-                htmlText += `<li class="tablet-list__tablet-container">
+                htmlText += `<li class="tablet-list__tablet-container tablet-list__tablet-container--job">
                     <button 
-                        class="tablet-list__tablet"
+                        class="tablet-list__tablet tablet-list__tablet--job"
                         onclick="createFilter('languages', '${element}')">
                         ${element}</button>
                 </li>`;
@@ -84,9 +84,9 @@ class JobListing extends HTMLElement {
         }
         if (tools !== null) {
             tools.forEach(element => {
-                htmlText += `<li class="tablet-list__tablet-container">
+                htmlText += `<li class="tablet-list__tablet-container tablet-list__tablet-container--job">
                 <button 
-                    class="tablet-list__tablet"
+                    class="tablet-list__tablet tablet-list__tablet--job"
                     onclick="createFilter('tools', '${element}')">
                     ${element}</button>
             </li>`;

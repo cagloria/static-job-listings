@@ -74,7 +74,7 @@ $dark: hsl(180, 14%, 20%);
         grid-column: 2;
     }
 
-    &__categories-list {
+    .tablet-list {
         align-self: center;
         justify-content: flex-end;
         justify-self: end;
@@ -109,7 +109,7 @@ $dark: hsl(180, 14%, 20%);
             grid-column: 1;
         }
 
-        &__categories-list {
+        .tablet-list {
             align-self: start;
             justify-content: flex-start;
             width: 100%;
