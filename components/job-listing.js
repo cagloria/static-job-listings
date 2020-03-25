@@ -131,7 +131,7 @@ class JobListing extends HTMLElement {
         ];
         let companyObj = list.find(company => company.company === name);
 
-        html += `src="../images/${companyObj.logo}" 
+        html += `src="./images/${companyObj.logo}" 
             alt="${companyObj.company} logo"`;
 
         return html;

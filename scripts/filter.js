@@ -62,7 +62,7 @@ function createFilter(dataset, category) {
                 <button 
                     class="delete-filter-button"
                     onclick="deleteFilter('${category}')"
-                ><img src="../images/icon-remove.svg"></button>
+                ><img src="./images/icon-remove.svg"></button>
             </li>`
         );
 
