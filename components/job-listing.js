@@ -18,7 +18,7 @@ class JobListing extends HTMLElement {
                 : this.dataset.tools.split(",");
         let jobObj = LISTING.getJobs().find(job => job.id === id);
 
-        let logoPath = this.getCompanyLogoPath(jobObj.company);
+        let logo = this.getCompanyLogo(jobObj.company);
         let isNewText = jobObj.isNew
             ? `<span class='job-listing__badge job-listing__badge--new'>New!</span>`
             : ``;
@@ -35,7 +35,7 @@ class JobListing extends HTMLElement {
 
         // Company logo, title, info
         let htmlText = `
-            <img class="job-listing__logo" width="88" height="88" src="${logoPath}" />
+            <img class="job-listing__logo" width="88" height="88" ${logo} />
             <p class="job-listing__top">${topText}</p>
             <p class="job-listing__title"><a href="#">${jobObj.title}</a></p>
             <p class="job-listing__info">${jobObj.time} - ${jobObj.shift} - ${jobObj.location}</p>
@@ -64,32 +64,40 @@ class JobListing extends HTMLElement {
      */
     createCategoriesArr(role, level, languages, tools) {
         let htmlText = `<ul class="tablet-list">`;
+        const liClass = `tablet-list__li tablet-list__li--job`;
+        const tabletClass = `tablet-list__tablet tablet-list__tablet--job`;
 
-        htmlText += `<li class="tablet-list__li tablet-list__li--job">
-            <button class="tablet-list__tablet tablet-list__tablet--job" onclick="createFilter('role', '${role}')">${role}</button>
-        </li>`;
-        htmlText += `<li class="tablet-list__li tablet-list__li--job">
-            <button class="tablet-list__tablet tablet-list__tablet--job" onclick="createFilter('level', '${level}')">${level}</button>
+        htmlText += `<li class="${liClass}">
+            <button 
+                class="${tabletClass}" 
+                onclick="createFilter('role', '${role}')"
+                >${role}</button>
+            </li>`;
+        htmlText += `<li class="${liClass}">
+            <button 
+                class="${tabletClass}" 
+                onclick="createFilter('level', '${level}')"
+            >${level}</button>
         </li>`;
 
         if (languages !== null) {
             languages.forEach(element => {
-                htmlText += `<li class="tablet-list__li tablet-list__li--job">
+                htmlText += `<li class="${liClass}">
                     <button 
-                        class="tablet-list__tablet tablet-list__tablet--job"
-                        onclick="createFilter('languages', '${element}')">
-                        ${element}</button>
+                        class="${tabletClass}"
+                        onclick="createFilter('languages', '${element}')"
+                    >${element}</button>
                 </li>`;
             });
         }
         if (tools !== null) {
             tools.forEach(element => {
-                htmlText += `<li class="tablet-list__li tablet-list__li--job">
-                <button 
-                    class="tablet-list__tablet tablet-list__tablet--job"
-                    onclick="createFilter('tools', '${element}')">
-                    ${element}</button>
-            </li>`;
+                htmlText += `<li class="${liClass}">
+                    <button 
+                        class="${tabletClass}"
+                        onclick="createFilter('tools', '${element}')"
+                    >${element}</button>
+                </li>`;
             });
         }
 
@@ -101,28 +109,32 @@ class JobListing extends HTMLElement {
     /**
      * Returns the path to the logo image of the company.
      * @param {String} name Name of company
-     * @returns             Path to company logo image file
+     * @returns             File path and alt text of company logo
      */
-    getCompanyLogoPath(name) {
-        let pathFolder = "../images/";
-        let list = [
-            { company: "Account", logo: pathFolder + "account.svg" },
-            { company: "Eyecam Co.", logo: pathFolder + "eyecam-co.svg" },
-            { company: "FaceIt", logo: pathFolder + "faceit.svg" },
-            { company: "Insure", logo: pathFolder + "insure.svg" },
-            { company: "Loop Studios", logo: pathFolder + "loop-studios.svg" },
-            { company: "Manage", logo: pathFolder + "manage.svg" },
-            { company: "MyHome", logo: pathFolder + "myhome.svg" },
-            { company: "Photosnap", logo: pathFolder + "photosnap.svg" },
-            { company: "Shortly", logo: pathFolder + "shortly.svg" },
+    getCompanyLogo(name) {
+        let html = ``;
+
+        const list = [
+            { company: "Account", logo: "account.svg" },
+            { company: "Eyecam Co.", logo: "eyecam-co.svg" },
+            { company: "FaceIt", logo: "faceit.svg" },
+            { company: "Insure", logo: "insure.svg" },
+            { company: "Loop Studios", logo: "loop-studios.svg" },
+            { company: "Manage", logo: "manage.svg" },
+            { company: "MyHome", logo: "myhome.svg" },
+            { company: "Photosnap", logo: "photosnap.svg" },
+            { company: "Shortly", logo: "shortly.svg" },
             {
                 company: "The Air Filter Company",
-                logo: pathFolder + "the-air-filter-company.svg"
+                logo: "the-air-filter-company.svg"
             }
         ];
         let companyObj = list.find(company => company.company === name);
 
-        return companyObj.logo;
+        html += `src="../images/${companyObj.logo}" 
+            alt="${companyObj.company} logo"`;
+
+        return html;
     }
 }
 
