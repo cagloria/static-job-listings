@@ -51,13 +51,16 @@ var FILTERS = (function () {
  */
 function createFilter(dataset, category) {
     if (FILTERS.isNewFilter(category)) {
-        let $filterContainer = $("#filter-list");
+        let $filterList = $("#filter-list");
 
         // Adds category to FILTERS.filters
         FILTERS.addFilterObj(dataset, category);
 
         // Creates a button of that category and places it in #filter-list
-        $filterContainer.append(`<filter-button data-category=${category} />`);
+        $filterList.append(
+            `<filter-button data-category=${category}
+                data-function=${deleteFilter.name} />`
+        );
 
         updateJobListingDisplay();
     }
@@ -89,14 +92,11 @@ function clearFilters() {
  * FILTERS.filters.length > 1.
  */
 function updateFilterDisplay() {
-    let $clearButton = $("#clear-button");
     let $filterContainer = $("#filter-container");
 
     if (FILTERS.getFilters().length < 1) {
-        $clearButton.css("display", "none");
         $filterContainer.removeClass("filter-container--visible");
     } else {
-        $clearButton.css("display", "block");
         $filterContainer.addClass("filter-container--visible");
     }
 }
