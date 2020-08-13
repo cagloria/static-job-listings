@@ -12,6 +12,10 @@ $dark: hsl(180, 14%, 20%);
         border-left: 5px solid $primary;
     }
 
+    &--invisible {
+        display: none;
+    }
+
     &__logo {
         width: 88px;
         height: 88px;
@@ -83,10 +87,8 @@ $dark: hsl(180, 14%, 20%);
         grid-row: 1 / span 3;
         grid-column: 3;
     }
-}
 
-@media only screen and (max-width: 768px) {
-    .job-listing {
+    @media only screen and (max-width: 768px) {
         padding-bottom: 14px;
         grid-template-columns: 1fr;
         grid-template-rows: 70px repeat(2, 50px) auto;
@@ -121,10 +123,8 @@ $dark: hsl(180, 14%, 20%);
             grid-column: 1;
         }
     }
-}
 
-@media only screen and (max-width: 425px) {
-    .job-listing {
+    @media only screen and (max-width: 425px) {
         grid-template-rows: 60px repeat(2, 50px) auto;
 
         &__logo {

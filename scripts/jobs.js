@@ -211,16 +211,12 @@ function createJobListings() {
     let jobs = LISTING.getJobs();
     jobs.forEach((job) => {
         job.id = LISTING.assignId();
-        let featuredMod = ``;
-
-        if (job.isFeatured) {
-            featuredMod = ` job-listing--featured`;
-        }
+        const featuredClass = job.isFeatured ? ` job-listing--featured` : "";
 
         $("#jobs-container").append(`
             <job-listing
                 id="job-${job.id}"
-                class="job-listing${featuredMod} main-row"
+                class="job-listing${featuredClass} main-row"
                 data-role="${job.role}"
                 data-level="${job.level}"
                 data-languages="${job.languages}"
@@ -232,17 +228,18 @@ function createJobListings() {
  * Updates job-listing elements to display based on filters.
  */
 function updateJobListingDisplay() {
-    let $jobListings = $("#jobs-container");
-    let filtersArr = FILTERS.getFilters();
+    const $jobsContainer = $("#jobs-container");
+    const $jobListings = $jobsContainer.children();
+    const filtersArr = FILTERS.getFilters();
 
-    $jobListings.children().css("display", "grid"); // Resets display
+    $jobListings.removeClass("job-listing--invisible");
     updateFilterDisplay();
 
-    // Go through each element in filters list, and if a job-listing does
-    // not match, set display to none
+    // Go through each element in filters list, and if a job-listing does not
+    // match, set display to none
     filtersArr.forEach((element) => {
-        $jobListings
+        $jobsContainer
             .children(`:not([data-${element.dataset}*='${element.category}'])`)
-            .css("display", "none");
+            .addClass("job-listing--invisible");
     });
 }

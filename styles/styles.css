@@ -73,6 +73,10 @@
   border-left: 5px solid #5ba4a4;
 }
 
+.job-listing--invisible {
+  display: none;
+}
+
 .job-listing__logo {
   width: 88px;
   height: 88px;
