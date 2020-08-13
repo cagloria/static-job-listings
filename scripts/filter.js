@@ -53,18 +53,11 @@ function createFilter(dataset, category) {
     if (FILTERS.isNewFilter(category)) {
         let $filterContainer = $("#filter-list");
 
-        FILTERS.addFilterObj(dataset, category); // Adds category to FILTERS.filters
+        // Adds category to FILTERS.filters
+        FILTERS.addFilterObj(dataset, category);
 
         // Creates a button of that category and places it in #filter-list
-        $filterContainer.append(
-            `<li id="filter-${category}" class="tablet-list__li tablet-list__li--filter">
-                <span class="tablet-list__tablet tablet-list__tablet--filter">${category}</span>
-                <button 
-                    class="delete-filter-button"
-                    onclick="deleteFilter('${category}')"
-                ><img src="./images/icon-remove.svg"></button>
-            </li>`
-        );
+        $filterContainer.append(`<filter-button data-category=${category} />`);
 
         updateJobListingDisplay();
     }
@@ -76,7 +69,7 @@ function createFilter(dataset, category) {
  */
 function deleteFilter(category) {
     FILTERS.removeFilterObj(category);
-    $(`#filter-${category}`).remove();
+    $(`filter-button[data-category=${category}]`).remove();
     updateJobListingDisplay();
 }
 

@@ -252,7 +252,14 @@
   list-style-type: none;
 }
 
+.tablet-list > *:not(:last-child) {
+  margin-right: 20px;
+}
+
 .tablet-list__li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: 30px;
   margin-bottom: 18px;
 }
