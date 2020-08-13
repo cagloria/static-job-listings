@@ -8,17 +8,12 @@ var FILTERS = (function () {
          * @returns         If category is a new filter
          */
         isNewFilter: function (newCategory) {
-            let newItem = true;
-            filters.forEach((element) => {
-                if (element.category === newCategory) {
-                    newItem = false;
-                }
-            });
-            return newItem;
+            let isNew = !filters.some((item) => item.category === newCategory);
+            return isNew;
         },
 
         /**
-         * Adds a category to FILTERS.filters.
+         * Adds a category to filters.
          * @param {String} category
          */
         addFilterObj: function (dataset, category) {
@@ -26,7 +21,7 @@ var FILTERS = (function () {
         },
 
         /**
-         * Removes a category from FILTERS.filters.
+         * Removes a category from filters.
          * @param {String} removedCategory  Category to remove
          */
         removeFilterObj: function (removedCategory) {
@@ -36,7 +31,7 @@ var FILTERS = (function () {
         },
 
         /**
-         * @returns FILTERS.filters, the list of current filters
+         * @returns The list of current filters
          */
         getFilters: function () {
             return filters;
