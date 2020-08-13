@@ -74,6 +74,8 @@
 }
 
 .job-listing__logo {
+  width: 88px;
+  height: 88px;
   margin: auto 0;
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;

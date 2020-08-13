@@ -13,6 +13,8 @@ $dark: hsl(180, 14%, 20%);
     }
 
     &__logo {
+        width: 88px;
+        height: 88px;
         margin: auto 0;
         grid-row: 1 / span 3;
         grid-column: 1;

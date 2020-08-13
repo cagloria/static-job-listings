@@ -6,51 +6,54 @@ class JobListing extends HTMLElement {
     connectedCallback() {
         let id = this.getAttribute("id").split("-")[1];
         id = Number(id);
-        let role = [this.dataset.role];
-        let level = [this.dataset.level];
-        let languages =
-            this.dataset.languages === "null"
-                ? null
-                : this.dataset.languages.split(",");
-        let tools =
-            this.dataset.tools === "null"
-                ? null
-                : this.dataset.tools.split(",");
-        let jobObj = LISTING.getJobs().find(job => job.id === id);
+        const role = [this.dataset.role];
+        const level = [this.dataset.level];
+        const languages = this.splitList(this.dataset.languages);
+        const tools = this.splitList(this.dataset.tools);
+        const jobObj = LISTING.getJobs().find((job) => job.id === id);
 
-        let logo = this.getCompanyLogo(jobObj.company);
-        let isNewText = jobObj.isNew
-            ? `<span class='job-listing__badge job-listing__badge--new'>New!</span>`
+        // Logo
+        const logoAttr = this.getCompanyLogoAttr(jobObj.company);
+
+        // Badges
+        const badgesClasses = "job-listing__badge job-listing__badge";
+        const isNewBadge = jobObj.isNew
+            ? `<span class="${badgesClasses}--new">New!</span>`
             : ``;
-        let isFeaturedText = jobObj.isFeatured
-            ? `<span class='job-listing__badge job-listing__badge--featured'>Featured</span>`
+        const isFeaturedBadge = jobObj.isFeatured
+            ? `<span class="${badgesClasses}--featured">Featured</span>`
             : ``;
-
-        // Top text = Company, new badge, featured badge
-        let topText = `
-            <span class='job-listing__company'>${jobObj.company}</span>
-            ${isNewText}
-            ${isFeaturedText}
-        `;
-
-        // Company logo, title, info
-        let htmlText = `
-            <img class="job-listing__logo" width="88" height="88" ${logo} />
-            <p class="job-listing__top">${topText}</p>
-            <p class="job-listing__title"><a href="#">${jobObj.title}</a></p>
-            <p class="job-listing__info">${jobObj.time} - ${jobObj.shift} - ${jobObj.location}</p>
-        `;
 
         // Tablets
-        let categories = this.createCategoriesArr(
+        const categories = this.createCategoriesArr(
             role,
             level,
             languages,
             tools
         );
-        htmlText += categories;
 
-        this.innerHTML = htmlText;
+        this.innerHTML = `
+            <img class="job-listing__logo" ${logoAttr} />
+            <p class="job-listing__top">
+                <span class='job-listing__company'>${jobObj.company}</span>
+                ${isNewBadge}
+                ${isFeaturedBadge}
+            </p>
+            <p class="job-listing__title"><a href="#">${jobObj.title}</a></p>
+            <p class="job-listing__info">
+                ${jobObj.time} • ${jobObj.shift} • ${jobObj.location}
+            </p>
+            ${categories}
+        `;
+    }
+
+    /**
+     * Splits a list by comma or returns null.
+     * @param {String} listStr  List in string from, separated by commas
+     * @returns                 An array or null
+     */
+    splitList(listStr) {
+        return listStr === "null" ? null : listStr.split(",");
     }
 
     /**
@@ -81,7 +84,7 @@ class JobListing extends HTMLElement {
         </li>`;
 
         if (languages !== null) {
-            languages.forEach(element => {
+            languages.forEach((element) => {
                 htmlText += `<li class="${liClass}">
                     <button 
                         class="${tabletClass}"
@@ -91,7 +94,7 @@ class JobListing extends HTMLElement {
             });
         }
         if (tools !== null) {
-            tools.forEach(element => {
+            tools.forEach((element) => {
                 htmlText += `<li class="${liClass}">
                     <button 
                         class="${tabletClass}"
@@ -107,11 +110,11 @@ class JobListing extends HTMLElement {
     }
 
     /**
-     * Returns the path to the logo image of the company.
+     * Returns src and alt attributes of the logo.
      * @param {String} name Name of company
-     * @returns             File path and alt text of company logo
+     * @returns             src and alt attributes of company logo
      */
-    getCompanyLogo(name) {
+    getCompanyLogoAttr(name) {
         let html = ``;
 
         const list = [
@@ -126,10 +129,10 @@ class JobListing extends HTMLElement {
             { company: "Shortly", logo: "shortly.svg" },
             {
                 company: "The Air Filter Company",
-                logo: "the-air-filter-company.svg"
-            }
+                logo: "the-air-filter-company.svg",
+            },
         ];
-        let companyObj = list.find(company => company.company === name);
+        let companyObj = list.find((company) => company.company === name);
 
         html += `src="./images/${companyObj.logo}" 
             alt="${companyObj.company} logo"`;

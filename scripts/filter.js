@@ -40,18 +40,19 @@ var FILTERS = (function () {
 })();
 
 /**
- * Adds new filter to FILTERS.filters and creates a filter button.
- * @param {String} dataset  Data set the category belongs to
- * @param {String} category Category, chosen from the button in the container
+ * Adds new filter and creates its corresponding button.
+ * @param {String} dataset  Data set the category belongs to (role, level,
+ * languages, tools)
+ * @param {String} category Category, passed from the job listing's button
  */
 function createFilter(dataset, category) {
     if (FILTERS.isNewFilter(category)) {
         let $filterList = $("#filter-list");
 
-        // Adds category to FILTERS.filters
+        // Adds category to filters
         FILTERS.addFilterObj(dataset, category);
 
-        // Creates a button of that category and places it in #filter-list
+        // Creates a button of that category
         $filterList.append(
             `<filter-button data-category=${category}
                 data-function=${deleteFilter.name} />`
@@ -62,7 +63,7 @@ function createFilter(dataset, category) {
 }
 
 /**
- * Deletes the filter in FILTERS.filters and deletes the corresponding button.
+ * Deletes the filter in filters and its corresponding button.
  * @param {String} category Category of the filter
  */
 function deleteFilter(category) {
@@ -72,7 +73,7 @@ function deleteFilter(category) {
 }
 
 /**
- * Clear all filters from FILTERS.filters and their corresponding buttons.
+ * Clear all filters and their corresponding buttons.
  */
 function clearFilters() {
     let filtersArr = FILTERS.getFilters();
@@ -83,8 +84,7 @@ function clearFilters() {
 }
 
 /**
- * Updates #clear-button and #filter-container to display only if
- * FILTERS.filters.length > 1.
+ * Updates display of filter container.
  */
 function updateFilterDisplay() {
     let $filterContainer = $("#filter-container");

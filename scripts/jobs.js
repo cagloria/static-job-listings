@@ -1,4 +1,4 @@
-var LISTING = (function() {
+var LISTING = (function () {
     let nextId = 0;
     var jobs = [
         new Job(
@@ -140,13 +140,13 @@ var LISTING = (function() {
             "Junior",
             ["JavaScript"],
             ["React", "Sass"]
-        )
+        ),
     ];
     return {
         /**
          * @returns LISTING.jobs, the array of Job objects
          */
-        getJobs: function() {
+        getJobs: function () {
             return jobs;
         },
 
@@ -154,10 +154,10 @@ var LISTING = (function() {
          * Increments the global id and assigns it to the next job.
          * @returns New id to assign to job
          */
-        assignId: function() {
+        assignId: function () {
             nextId++;
             return nextId;
-        }
+        },
     };
 })();
 
@@ -209,7 +209,7 @@ function Job(
  */
 function createJobListings() {
     let jobs = LISTING.getJobs();
-    jobs.forEach(job => {
+    jobs.forEach((job) => {
         job.id = LISTING.assignId();
         let featuredMod = ``;
 
@@ -224,14 +224,12 @@ function createJobListings() {
                 data-role="${job.role}"
                 data-level="${job.level}"
                 data-languages="${job.languages}"
-                data-tools="${job.tools}"
-                </job-listing>
-        `);
+                data-tools="${job.tools}" />`);
     });
 }
 
 /**
- * Updates job-listing elements to display based on filters from FILTERS.filters.
+ * Updates job-listing elements to display based on filters.
  */
 function updateJobListingDisplay() {
     let $jobListings = $("#jobs-container");
@@ -240,9 +238,9 @@ function updateJobListingDisplay() {
     $jobListings.children().css("display", "grid"); // Resets display
     updateFilterDisplay();
 
-    // Go through each element in FILTERS.filters, and if a job-listing does
+    // Go through each element in filters list, and if a job-listing does
     // not match, set display to none
-    filtersArr.forEach(element => {
+    filtersArr.forEach((element) => {
         $jobListings
             .children(`:not([data-${element.dataset}*='${element.category}'])`)
             .css("display", "none");
