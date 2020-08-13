@@ -1,4 +1,4 @@
-var FILTERS = (function() {
+var FILTERS = (function () {
     var filters = [];
 
     return {
@@ -7,9 +7,9 @@ var FILTERS = (function() {
          * @param {String}  newCategory
          * @returns         If category is a new filter
          */
-        isNewFilter: function(newCategory) {
+        isNewFilter: function (newCategory) {
             let newItem = true;
-            filters.forEach(element => {
+            filters.forEach((element) => {
                 if (element.category === newCategory) {
                     newItem = false;
                 }
@@ -21,7 +21,7 @@ var FILTERS = (function() {
          * Adds a category to FILTERS.filters.
          * @param {String} category
          */
-        addFilterObj: function(dataset, category) {
+        addFilterObj: function (dataset, category) {
             filters.push({ dataset: dataset, category: category });
         },
 
@@ -29,18 +29,18 @@ var FILTERS = (function() {
          * Removes a category from FILTERS.filters.
          * @param {String} removedCategory  Category to remove
          */
-        removeFilterObj: function(removedCategory) {
+        removeFilterObj: function (removedCategory) {
             filters = filters.filter(
-                element => element.category !== removedCategory
+                (element) => element.category !== removedCategory
             );
         },
 
         /**
          * @returns FILTERS.filters, the list of current filters
          */
-        getFilters: function() {
+        getFilters: function () {
             return filters;
-        }
+        },
     };
 })();
 
@@ -86,7 +86,7 @@ function deleteFilter(category) {
 function clearFilters() {
     let filtersArr = FILTERS.getFilters();
 
-    filtersArr.forEach(element => {
+    filtersArr.forEach((element) => {
         deleteFilter(element.category);
     });
 }
@@ -101,9 +101,9 @@ function updateFilterDisplay() {
 
     if (FILTERS.getFilters().length < 1) {
         $clearButton.css("display", "none");
-        $filterContainer.css("visibility", "hidden");
+        $filterContainer.removeClass("filter-container--visible");
     } else {
         $clearButton.css("display", "block");
-        $filterContainer.css("visibility", "visible");
+        $filterContainer.addClass("filter-container--visible");
     }
 }

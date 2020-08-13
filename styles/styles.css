@@ -1,21 +1,9 @@
-.filter-container-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 0;
-}
-
 .filter-container {
+  position: relative;
+  top: -30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  visibility: hidden;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -26,6 +14,13 @@
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  -webkit-filter: opacity(0);
+          filter: opacity(0);
+}
+
+.filter-container--visible {
+  -webkit-filter: opacity(1);
+          filter: opacity(1);
 }
 
 .delete-filter-button {
@@ -61,16 +56,6 @@
 .clear-button:hover {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
-}
-
-@media only screen and (max-width: 768px) {
-  .filter-container-wrapper {
-    position: relative;
-    top: -30px;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-  }
 }
 
 .job-listing {

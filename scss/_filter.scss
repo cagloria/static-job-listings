@@ -1,20 +1,19 @@
 $primary: hsl(180, 29%, 50%);
 $dark: hsl(180, 14%, 20%);
 
-.filter-container-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 0;
-}
-
 .filter-container {
+    position: relative;
+    top: -30px;
     display: flex;
-    visibility: hidden;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     height: fit-content;
+    filter: opacity(0);
+
+    &--visible {
+        filter: opacity(1);
+    }
 }
 
 .delete-filter-button {
@@ -40,13 +39,5 @@ $dark: hsl(180, 14%, 20%);
     background-color: transparent;
     &:hover {
         text-decoration-line: underline;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .filter-container-wrapper {
-        position: relative;
-        top: -30px;
-        height: fit-content;
     }
 }
