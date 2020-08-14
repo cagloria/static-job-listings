@@ -41,7 +41,11 @@ class JobListing extends HTMLElement {
             </p>
             <p class="job-listing__title"><a href="#">${jobObj.title}</a></p>
             <p class="job-listing__info">
-                ${jobObj.time} • ${jobObj.shift} • ${jobObj.location}
+                <span>${jobObj.time}</span>
+                <span>•</span>
+                <span>${jobObj.shift}</span>
+                <span>•</span>
+                <span>${jobObj.location}</span>
             </p>
             ${categories}
         `;
