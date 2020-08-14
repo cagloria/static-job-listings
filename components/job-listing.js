@@ -16,16 +16,16 @@ class JobListing extends HTMLElement {
         const logoAttr = this.getCompanyLogoAttr(jobObj.company);
 
         // Badges
-        const badgesClasses = "job-listing__badge job-listing__badge";
+        const badgeClasses = "job-listing__badge job-listing__badge";
         const isNewBadge = jobObj.isNew
-            ? `<span class="${badgesClasses}--new">New!</span>`
+            ? `<span class="${badgeClasses}--new">New!</span>`
             : ``;
         const isFeaturedBadge = jobObj.isFeatured
-            ? `<span class="${badgesClasses}--featured">Featured</span>`
+            ? `<span class="${badgeClasses}--featured">Featured</span>`
             : ``;
 
         // Tablets
-        const categories = this.createCategoriesArr(
+        const categories = this.createCategoryList(
             role,
             level,
             languages,
@@ -48,7 +48,7 @@ class JobListing extends HTMLElement {
     }
 
     /**
-     * Splits a list by comma or returns null.
+     * Splits a list by commas or returns null if the list is empty.
      * @param {String} listStr  List in string from, separated by commas
      * @returns                 An array or null
      */
@@ -57,56 +57,73 @@ class JobListing extends HTMLElement {
     }
 
     /**
-     * Concatenates role, level, languages, and tools arrays into one
-     * categories array. Checks if languages or tools are null.
+     * Concatenates role, level, languages, and tools into a list element.
      * @param {Array} role      Role array
      * @param {Array} level     Level array
      * @param {Array} languages Languages array
      * @param {Array} tools     Tools array
-     * @returns                 Concatenated array
+     * @returns                 Concatenated ul element
      */
-    createCategoriesArr(role, level, languages, tools) {
-        let htmlText = `<ul class="tablet-list">`;
+    createCategoryList(role, level, languages, tools) {
+        let langTablets = ``;
+        let skillsTablets = ``;
         const liClass = `tablet-list__li tablet-list__li--job`;
         const tabletClass = `tablet-list__tablet tablet-list__tablet--job`;
 
-        htmlText += `<li class="${liClass}">
-            <button 
-                class="${tabletClass}" 
-                onclick="createFilter('role', '${role}')"
+        // The role and level data sets can only have one category each
+        const roleTablet = `
+            <li class="${liClass}">
+                <button 
+                    class="${tabletClass}" 
+                    onclick="createFilter('role', '${role}')"
                 >${role}</button>
-            </li>`;
-        htmlText += `<li class="${liClass}">
-            <button 
-                class="${tabletClass}" 
-                onclick="createFilter('level', '${level}')"
-            >${level}</button>
-        </li>`;
+            </li>
+        `;
 
+        const levelTablet = `
+            <li class="${liClass}">
+                <button 
+                    class="${tabletClass}" 
+                    onclick="createFilter('level', '${level}')"
+                >${level}</button>
+            </li>
+        `;
+
+        // Langauge and skills data sets can have multiple categories each
         if (languages !== null) {
             languages.forEach((element) => {
-                htmlText += `<li class="${liClass}">
-                    <button 
-                        class="${tabletClass}"
-                        onclick="createFilter('languages', '${element}')"
-                    >${element}</button>
-                </li>`;
+                langTablets += `
+                    <li class="${liClass}">
+                        <button 
+                            class="${tabletClass}"
+                            onclick="createFilter('languages', '${element}')"
+                        >${element}</button>
+                    </li>
+                `;
             });
         }
+
         if (tools !== null) {
             tools.forEach((element) => {
-                htmlText += `<li class="${liClass}">
-                    <button 
-                        class="${tabletClass}"
-                        onclick="createFilter('tools', '${element}')"
-                    >${element}</button>
-                </li>`;
+                skillsTablets += `
+                    <li class="${liClass}">
+                        <button 
+                            class="${tabletClass}"
+                            onclick="createFilter('tools', '${element}')"
+                        >${element}</button>
+                    </li>
+                `;
             });
         }
 
-        htmlText += `</ul>`;
-
-        return htmlText;
+        return `
+            <ul class="tablet-list">
+                ${roleTablet}
+                ${levelTablet}
+                ${langTablets}
+                ${skillsTablets}
+            </ul>
+        `;
     }
 
     /**
@@ -117,7 +134,7 @@ class JobListing extends HTMLElement {
     getCompanyLogoAttr(name) {
         let html = ``;
 
-        const list = [
+        const companyList = [
             { company: "Account", logo: "account.svg" },
             { company: "Eyecam Co.", logo: "eyecam-co.svg" },
             { company: "FaceIt", logo: "faceit.svg" },
@@ -132,7 +149,9 @@ class JobListing extends HTMLElement {
                 logo: "the-air-filter-company.svg",
             },
         ];
-        let companyObj = list.find((company) => company.company === name);
+        let companyObj = companyList.find(
+            (company) => company.company === name
+        );
 
         html += `src="./images/${companyObj.logo}" 
             alt="${companyObj.company} logo"`;
