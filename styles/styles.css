@@ -1,6 +1,7 @@
 .filter-container {
-  position: relative;
-  top: -30px;
+  position: absolute;
+  top: -110px;
+  left: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,10 +11,11 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 100%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   -webkit-filter: opacity(0);
           filter: opacity(0);
 }
@@ -331,22 +333,41 @@ button {
   cursor: pointer;
 }
 
+.position-relative {
+  position: relative;
+}
+
 .banner {
-  height: 160px;
+  height: 156px;
   background-color: #5ba4a4;
   background-image: url("../images/bg-header-desktop.svg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-main,
-footer {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 50px;
+@media only screen and (max-width: 768px) {
+  .banner {
+    background-image: url("../images/bg-header-mobile.svg");
+  }
 }
 
-.main-row {
+.section {
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .section {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}
+
+.window-width {
+  width: 77.2vw;
+  max-width: 1110px;
+}
+
+.content-row {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-right: 40px;
@@ -357,17 +378,29 @@ footer {
           box-shadow: 0 10px 8px rgba(91, 164, 164, 0.1);
 }
 
+@media only screen and (max-width: 768px) {
+  .content-row {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+
 .jobs-container {
   display: -ms-grid;
   display: grid;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin: 75px auto 0 auto;
-  grid-auto-columns: minmax(auto, 1100px);
+  width: 100%;
+  margin: 76px 0 auto;
+  grid-auto-columns: auto;
   grid-auto-rows: auto;
-  gap: 24px;
+  gap: 26px;
   grid-auto-flow: row;
+}
+
+@media only screen and (max-width: 768px) {
+  .jobs-container {
+    margin-top: 50px;
+    gap: 40px;
+  }
 }
 
 .attribution {
@@ -380,22 +413,4 @@ footer {
 
 .attribution a {
   color: #5ba4a4;
-}
-
-@media only screen and (max-width: 768px) {
-  .banner {
-    background-image: url("../images/bg-header-mobile.svg");
-  }
-  main {
-    padding-right: 25px;
-    padding-left: 25px;
-  }
-  .main-row {
-    padding-right: 20px;
-    padding-left: 20px;
-  }
-  .jobs-container {
-    margin-top: 50px;
-    gap: 40px;
-  }
 }

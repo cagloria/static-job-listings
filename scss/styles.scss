@@ -20,38 +20,59 @@ button {
     cursor: pointer;
 }
 
+.position-relative {
+    position: relative;
+}
+
 .banner {
-    height: 160px;
+    height: 156px;
     background-color: $primary;
     background-image: url("../images/bg-header-desktop.svg");
     background-repeat: no-repeat;
     background-size: cover;
+    @media only screen and (max-width: 768px) {
+        background-image: url("../images/bg-header-mobile.svg");
+    }
 }
 
-main,
-footer {
-    max-width: 1100px;
+.section {
     margin: 0 auto;
-    padding: 0 50px;
+    @media only screen and (max-width: 768px) {
+        padding-right: 25px;
+        padding-left: 25px;
+    }
 }
 
-.main-row {
+.window-width {
+    width: 77.2vw;
+    max-width: 1110px;
+}
+
+.content-row {
     box-sizing: border-box;
     padding-right: 40px;
     padding-left: 40px;
     border-radius: 5px;
     background-color: $white;
     box-shadow: 0 10px 8px hsla(180, 29%, 50%, 0.1);
+    @media only screen and (max-width: 768px) {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
 }
 
 .jobs-container {
     display: grid;
-    width: fit-content;
-    margin: 75px auto 0 auto;
-    grid-auto-columns: minmax(auto, 1100px);
+    width: 100%;
+    margin: 76px 0 auto;
+    grid-auto-columns: auto;
     grid-auto-rows: auto;
-    gap: 24px;
+    gap: 26px;
     grid-auto-flow: row;
+    @media only screen and (max-width: 768px) {
+        margin-top: 50px;
+        gap: 40px;
+    }
 }
 
 .attribution {
@@ -62,26 +83,5 @@ footer {
     color: $neutral-dark;
     a {
         color: $primary;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .banner {
-        background-image: url("../images/bg-header-mobile.svg");
-    }
-
-    main {
-        padding-right: 25px;
-        padding-left: 25px;
-    }
-
-    .main-row {
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-
-    .jobs-container {
-        margin-top: 50px;
-        gap: 40px;
     }
 }
