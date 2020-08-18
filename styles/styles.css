@@ -1,19 +1,17 @@
 .filter-container {
-  position: absolute;
-  top: -112px;
+  position: relative;
+  top: -35px;
   left: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
+  min-height: 72px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   -webkit-filter: opacity(0);
@@ -23,6 +21,12 @@
 .filter-container--visible {
   -webkit-filter: opacity(1);
           filter: opacity(1);
+}
+
+@media only screen and (max-width: 768px) {
+  .filter-container {
+    min-height: 66px;
+  }
 }
 
 .delete-filter-button {
@@ -60,6 +64,24 @@
 .clear-button:hover {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
+}
+
+.jobs-container {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  margin: 0 auto;
+  grid-auto-columns: auto;
+  grid-auto-rows: auto;
+  gap: 25px;
+  grid-auto-flow: row;
+}
+
+@media only screen and (max-width: 1024px) {
+  .jobs-container {
+    margin-top: 30px;
+    gap: 60px;
+  }
 }
 
 .job-listing {
@@ -362,10 +384,6 @@ button {
   cursor: pointer;
 }
 
-.position-relative {
-  position: relative;
-}
-
 .banner {
   height: 156px;
   background-color: #5ba4a4;
@@ -410,23 +428,6 @@ button {
   .content-row {
     padding-right: 20px;
     padding-left: 20px;
-  }
-}
-
-.jobs-container {
-  display: -ms-grid;
-  display: grid;
-  width: 100%;
-  margin: 76px 0 auto;
-  grid-auto-columns: auto;
-  grid-auto-rows: auto;
-  gap: 25px;
-  grid-auto-flow: row;
-}
-
-@media only screen and (max-width: 1024px) {
-  .jobs-container {
-    gap: 60px;
   }
 }
 
