@@ -20,8 +20,6 @@ $dark: hsl(180, 14%, 20%);
     }
 }
 
-// TODO: Set vertical flow on smaller devices
-
 .delete-filter-button {
     display: flex;
     align-items: center;
@@ -41,7 +39,9 @@ $dark: hsl(180, 14%, 20%);
 .clear-button {
     font-size: 0.85em;
     font-weight: bold;
-    margin: 4px -7px 0 0;
+    align-self: center;
+    height: fit-content;
+    margin-right: -7px;
     color: $primary;
     border: 0;
     background-color: transparent;
