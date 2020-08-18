@@ -71,8 +71,8 @@ class JobListing extends HTMLElement {
     createCategoryList(role, level, languages, tools) {
         let langTablets = ``;
         let skillsTablets = ``;
-        const liClass = `tablet-list__li tablet-list__li--job`;
-        const tabletClass = `tablet-list__tablet tablet-list__tablet--job`;
+        const liClass = `tablet-li`;
+        const tabletClass = `tablet`;
 
         // The role and level data sets can only have one category each
         const roleTablet = `
@@ -121,7 +121,7 @@ class JobListing extends HTMLElement {
         }
 
         return `
-            <ul class="tablet-list">
+            <ul class="tablet-list tablet-list--job">
                 ${roleTablet}
                 ${levelTablet}
                 ${langTablets}

@@ -1,73 +1,75 @@
 $primary: hsl(180, 29%, 50%);
 $neutral-light: hsl(180, 31%, 95%);
+$tablet-margin: 17px;
 
 .tablet-list {
     display: flex;
     align-content: center;
-    align-items: center;
     flex-wrap: wrap;
-    height: 100%;
     margin: 0;
-    padding-top: 18px;
-    padding-left: 0;
+    padding: 11px 0 0;
     list-style-type: none;
-    > *:not(:last-child) {
-        margin-right: 20px;
-    }
-
-    &__li {
-        display: flex;
-        height: 30px;
-        margin-bottom: 18px;
-
-        &--filter {
-            display: flex;
-            margin-right: 18px;
+    &--filter {
+        .tablet-li {
+            margin: 0 17px 17px 0;
         }
 
-        &--job {
-            margin-left: 18px;
+        .tablet {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
         }
     }
 
-    &__tablet {
-        font-size: 13px;
-        font-weight: bold;
-        padding: 8px;
-        color: $primary;
-        border: 0;
-        background-color: $neutral-light;
-        &--filter {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
+    &--job {
+        justify-content: flex-end;
+        .tablet-li {
+            margin: 0 0 17px 17px;
+            &:first-child {
+                margin-left: 0;
+            }
         }
 
-        &--job {
+        .tablet {
             border-radius: 5px;
-        }
-
-        &:not(&--filter):hover {
-            color: $neutral-light;
-            background-color: $primary;
+            &:hover {
+                color: $neutral-light;
+                background-color: $primary;
+            }
         }
     }
-}
 
-@media only screen and (max-width: 768px) {
-    .tablet-list {
+    @media only screen and (max-width: 768px) {
         padding-top: 14px;
 
-        &__li {
-            margin-bottom: 14px;
-
-            &--filter {
+        &--filter {
+            .tablet-li {
                 margin-right: 14px;
             }
+        }
 
-            &--job {
+        &--job {
+            .tablet-li {
                 margin-right: 14px;
                 margin-left: 0;
             }
         }
     }
+}
+
+.tablet-li {
+    display: flex;
+    height: 33px;
+
+    @media only screen and (max-width: 768px) {
+        margin-bottom: 14px;
+    }
+}
+
+.tablet {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px;
+    color: $primary;
+    border: 0;
+    background-color: $neutral-light;
 }
