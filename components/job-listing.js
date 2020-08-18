@@ -34,13 +34,15 @@ class JobListing extends HTMLElement {
 
         this.innerHTML = `
             <img class="job-listing__logo" ${logoAttr} />
-            <p class="job-listing__top">
+            <p class="job-listing__top align-self-center">
                 <span class='job-listing__company'>${jobObj.company}</span>
                 ${isNewBadge}
                 ${isFeaturedBadge}
             </p>
-            <p class="job-listing__title"><a href="#">${jobObj.title}</a></p>
-            <p class="job-listing__info">
+            <p class="job-listing__title align-self-center">
+                <a href="#">${jobObj.title}</a>
+            </p>
+            <p class="job-listing__info align-self-center">
                 <span>${jobObj.time}</span>
                 <span>•</span>
                 <span>${jobObj.shift}</span>

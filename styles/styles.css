@@ -66,8 +66,7 @@
   border-left: 5px solid transparent;
   -ms-grid-columns: 88px minmax(240px, 410px) auto;
       grid-template-columns: 88px minmax(240px, 410px) auto;
-  -ms-grid-rows: minmax(56px, auto) minmax(43px, auto) minmax(52px, auto);
-      grid-template-rows: minmax(56px, auto) minmax(43px, auto) minmax(52px, auto);
+      grid-template-areas: repeat(3, auto);
   -webkit-column-gap: 25px;
           column-gap: 25px;
 }
@@ -102,7 +101,7 @@
           align-items: baseline;
   -ms-flex-item-align: end;
       align-self: end;
-  margin: 0;
+  margin: 31px 0 0;
   -ms-grid-row: 1;
   grid-row: 1;
   -ms-grid-column: 2;
@@ -138,7 +137,7 @@
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  margin: 0;
+  margin: 13px 0;
   letter-spacing: 0.035em;
   -ms-grid-row: 2;
   grid-row: 2;
@@ -161,7 +160,7 @@
   -ms-flex-item-align: start;
       -ms-grid-row-align: start;
       align-self: start;
-  margin: 0;
+  margin: 0 0 34px;
   letter-spacing: 0.035em;
   color: #7b8e8e;
   -ms-grid-row: 3;
@@ -187,7 +186,7 @@
   grid-column: 3;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .job-listing {
     padding-bottom: 14px;
     -ms-grid-columns: 1fr;
@@ -247,6 +246,12 @@
   }
 }
 
+.align-self-center {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
 .tablet-list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -256,7 +261,7 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0;
-  padding: 11px 0 0;
+  padding: 17px 0 0;
   list-style-type: none;
 }
 
@@ -400,10 +405,9 @@ button {
   grid-auto-flow: row;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
   .jobs-container {
-    margin-top: 50px;
-    gap: 40px;
+    gap: 60px;
   }
 }
 

@@ -7,8 +7,9 @@ $dark: hsl(180, 14%, 20%);
     display: grid;
     border-left: 5px solid transparent;
     grid-template-columns: 88px minmax(240px, 410px) auto;
-    grid-template-rows: minmax(56px, auto) minmax(43px, auto) minmax(52px, auto);
+    grid-template-areas: repeat(3, auto);
     column-gap: 25px;
+
     &--featured {
         border-left-color: $primary;
     }
@@ -31,7 +32,7 @@ $dark: hsl(180, 14%, 20%);
         display: flex;
         align-items: baseline;
         align-self: end;
-        margin: 0;
+        margin: 31px 0 0;
         grid-row: 1;
         grid-column: 2;
     }
@@ -61,7 +62,7 @@ $dark: hsl(180, 14%, 20%);
         font-size: 1.0625em;
         font-weight: bold;
         align-self: center;
-        margin: 0;
+        margin: 13px 0;
         letter-spacing: 0.035em;
         grid-row: 2;
         grid-column: 2;
@@ -77,7 +78,7 @@ $dark: hsl(180, 14%, 20%);
     &__info {
         font-size: 0.875em;
         align-self: start;
-        margin: 0;
+        margin: 0 0 34px;
         letter-spacing: 0.035em;
         color: $neutral-dark;
         grid-row: 3;
@@ -94,7 +95,7 @@ $dark: hsl(180, 14%, 20%);
         grid-column: 3;
     }
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 1024px) {
         padding-bottom: 14px;
         grid-template-columns: 1fr;
         grid-template-rows: 70px repeat(2, 50px) auto;
@@ -139,4 +140,8 @@ $dark: hsl(180, 14%, 20%);
             height: 50px;
         }
     }
+}
+
+.align-self-center {
+    align-self: center;
 }

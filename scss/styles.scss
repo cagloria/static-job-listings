@@ -68,9 +68,8 @@ button {
     grid-auto-rows: auto;
     gap: 25px;
     grid-auto-flow: row;
-    @media only screen and (max-width: 768px) {
-        margin-top: 50px;
-        gap: 40px;
+    @media only screen and (max-width: 1024px) {
+        gap: 60px;
     }
 }
 
