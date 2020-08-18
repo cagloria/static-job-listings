@@ -3,7 +3,7 @@ $dark: hsl(180, 14%, 20%);
 
 .filter-container {
     position: absolute;
-    top: -110px;
+    top: -112px;
     left: 50%;
     display: flex;
     align-items: center;
@@ -16,12 +16,14 @@ $dark: hsl(180, 14%, 20%);
     }
 }
 
+// FIXME: Filter container floating over job listings
+
 .delete-filter-button {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 30px;
-    height: 30px;
+    height: 100%;
     margin-right: 0;
     border: 0;
     border-top-right-radius: 5px;
@@ -33,7 +35,9 @@ $dark: hsl(180, 14%, 20%);
 }
 
 .clear-button {
+    font-size: 0.85em;
     font-weight: bold;
+    margin: 4px -7px 0 0;
     color: $primary;
     border: 0;
     background-color: transparent;
