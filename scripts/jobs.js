@@ -214,13 +214,14 @@ function createJobListings() {
         const featuredClass = job.isFeatured ? ` job-listing--featured` : "";
 
         $("#jobs-container").append(`
-            <job-listing
+            <li is="job-listing"
                 id="job-${job.id}"
                 class="job-listing${featuredClass} content-row"
                 data-role="${job.role}"
                 data-level="${job.level}"
                 data-languages="${job.languages}"
-                data-tools="${job.tools}" />`);
+                data-tools="${job.tools}" />
+        `);
     });
 }
 

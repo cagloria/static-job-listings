@@ -1,4 +1,4 @@
-class JobListing extends HTMLElement {
+class JobListing extends HTMLLIElement {
     constructor() {
         super();
     }
@@ -166,4 +166,4 @@ class JobListing extends HTMLElement {
     }
 }
 
-customElements.define("job-listing", JobListing);
+customElements.define("job-listing", JobListing, { extends: "li" });

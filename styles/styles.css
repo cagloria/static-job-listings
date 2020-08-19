@@ -469,6 +469,12 @@ button {
   }
 }
 
+.invisible {
+  position: absolute;
+  -webkit-transform: translateY(-200vh);
+          transform: translateY(-200vh);
+}
+
 .section {
   margin: 0 auto;
 }
