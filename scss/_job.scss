@@ -82,16 +82,22 @@ $dark: hsl(180, 14%, 20%);
             margin-right: 9px;
         }
 
-        @media only screen and (max-width: 1024px) {
+        @media only screen and (max-width: 1024px) and (min-width: 426px) {
             margin-top: 50px;
+        }
+
+        @media only screen and (max-width: 1024px) {
             grid-column: 1;
         }
 
         @media only screen and (max-width: 768px) {
-            margin-top: 31px;
             > *:first-child {
                 margin-right: 9px;
             }
+        }
+
+        @media only screen and (max-width: 425px) {
+            margin-top: 31px;
         }
     }
 
@@ -159,10 +165,13 @@ $dark: hsl(180, 14%, 20%);
         }
 
         @media only screen and (max-width: 768px) {
-            font-size: 0.7em;
             > *:not(:last-child) {
                 margin-right: 6px;
             }
+        }
+
+        @media only screen and (max-width: 425px) {
+            font-size: 0.7em;
         }
     }
 
