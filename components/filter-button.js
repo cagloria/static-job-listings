@@ -14,7 +14,7 @@ class FilterButton extends HTMLElement {
                     class="delete-filter-button"
                     onclick="${functionName}('${category}')"
                     aria-label="Delete ${category} filter">
-                <img src="./images/icon-remove.svg"></button>
+                <img src="./images/icon-remove.svg" aria-hidden="true"></button>
             </li>`;
     }
 }

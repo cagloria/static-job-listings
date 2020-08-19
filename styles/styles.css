@@ -4,6 +4,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  visibility: hidden;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -12,14 +13,11 @@
   height: fit-content;
   min-height: 72px;
   margin: 0 auto;
-  -webkit-filter: opacity(0);
-          filter: opacity(0);
 }
 
 .filter-container--visible {
+  visibility: visible;
   margin-bottom: 18px;
-  -webkit-filter: opacity(1);
-          filter: opacity(1);
 }
 
 @media only screen and (max-width: 768px) {
