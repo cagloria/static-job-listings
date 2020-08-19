@@ -4,14 +4,14 @@ $dark: hsl(180, 14%, 20%);
 .filter-container {
     position: relative;
     top: -35px;
-    left: 50%;
     display: flex;
     justify-content: space-between;
     height: fit-content;
     min-height: 72px;
-    transform: translateX(-50%);
+    margin: 0 auto;
     filter: opacity(0);
     &--visible {
+        margin-bottom: 18px;
         filter: opacity(1);
     }
 

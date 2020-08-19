@@ -216,7 +216,7 @@ function createJobListings() {
         $("#jobs-container").append(`
             <job-listing
                 id="job-${job.id}"
-                class="job-listing${featuredClass} content-row window-width"
+                class="job-listing${featuredClass} content-row"
                 data-role="${job.role}"
                 data-level="${job.level}"
                 data-languages="${job.languages}"

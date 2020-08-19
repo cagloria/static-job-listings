@@ -5,14 +5,14 @@ $dark: hsl(180, 14%, 20%);
 
 .jobs-container {
     display: grid;
-    width: 100%;
-    margin: 0 auto;
-    grid-auto-columns: auto;
+    margin: 4px auto 0;
+    padding: 0;
+    list-style-type: none;
+    grid-template-columns: 1fr;
     grid-auto-rows: auto;
     gap: 25px;
     grid-auto-flow: row;
     @media only screen and (max-width: 1024px) {
-        margin-top: 30px;
         gap: 60px;
     }
 }
@@ -23,9 +23,8 @@ $dark: hsl(180, 14%, 20%);
     display: grid;
     border-left: 5px solid transparent;
     grid-template-columns: 88px minmax(240px, 410px) auto;
-    grid-template-areas: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
     column-gap: 25px;
-
     &--featured {
         border-left-color: $primary;
     }
@@ -48,9 +47,17 @@ $dark: hsl(180, 14%, 20%);
         display: flex;
         align-items: baseline;
         align-self: end;
+        flex-wrap: wrap;
         margin: 31px 0 0;
         grid-row: 1;
         grid-column: 2;
+        > *:first-child {
+            margin-right: 16px;
+        }
+
+        > *:nth-child(2) {
+            margin-right: 9px;
+        }
     }
 
     &__company {
@@ -65,11 +72,9 @@ $dark: hsl(180, 14%, 20%);
         color: $neutral-light;
         border-radius: 20px;
         &--new {
-            margin-left: 16px;
             background-color: $primary;
         }
         &--featured {
-            margin-left: 9px;
             background-color: $dark;
         }
     }
@@ -114,10 +119,9 @@ $dark: hsl(180, 14%, 20%);
     @media only screen and (max-width: 1024px) {
         padding-bottom: 14px;
         grid-template-columns: 1fr;
-        grid-template-rows: 70px repeat(2, 50px) auto;
         &__logo {
             position: relative;
-            bottom: 35px;
+            top: -35px;
             width: 70px;
             height: 70px;
             grid-column: 1;
@@ -148,10 +152,8 @@ $dark: hsl(180, 14%, 20%);
     }
 
     @media only screen and (max-width: 425px) {
-        grid-template-rows: 60px repeat(2, 50px) auto;
-
         &__logo {
-            bottom: 30px;
+            top: -30px;
             width: 50px;
             height: 50px;
         }
