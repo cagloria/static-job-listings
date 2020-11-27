@@ -1,4 +1,4 @@
 window.onload = function () {
     Listings.createJobListings();
-    this.updateFilterDisplay();
+    Filters.updateFilterDisplay();
 };

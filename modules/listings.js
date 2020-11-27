@@ -1,6 +1,6 @@
 let Listings = (function () {
-    let nextId = 0;
-    let jobs = [
+    let _nextId = 0;
+    let _jobs = [
         Job(
             "Photosnap",
             true,
@@ -143,19 +143,19 @@ let Listings = (function () {
         ),
     ];
 
-    const assignId = () => {
-        nextId++;
-        return nextId;
+    const _assignId = () => {
+        _nextId++;
+        return _nextId;
     };
 
     return {
         getJobs: function () {
-            return jobs;
+            return _jobs;
         },
 
         createJobListings: function () {
-            jobs.forEach((job) => {
-                job.id = assignId();
+            _jobs.forEach((job) => {
+                job.id = _assignId();
                 const featuredClass = job.isFeatured
                     ? ` job-listing--featured`
                     : "";
@@ -175,10 +175,10 @@ let Listings = (function () {
         updateJobListingDisplay: function () {
             const $jobsContainer = $("#jobs-container");
             const $jobListings = $jobsContainer.children();
-            const filtersArr = FILTERS.getFilters();
+            const filtersArr = Filters.getFilters();
 
             $jobListings.removeClass("job-listing--invisible");
-            updateFilterDisplay();
+            Filters.updateFilterDisplay();
 
             // Go through each element in filters list, and if a job-listing
             // does not match, set display to none

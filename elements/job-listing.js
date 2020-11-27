@@ -81,7 +81,7 @@ class JobListing extends HTMLLIElement {
             <li class="${liClass}">
                 <button 
                     class="${tabletClass}" 
-                    onclick="createFilter('role', '${role}')"
+                    onclick="Filters.createFilter('role', '${role}')"
                 >${role}</button>
             </li>
         `;
@@ -90,7 +90,7 @@ class JobListing extends HTMLLIElement {
             <li class="${liClass}">
                 <button 
                     class="${tabletClass}" 
-                    onclick="createFilter('level', '${level}')"
+                    onclick="Filters.createFilter('level', '${level}')"
                 >${level}</button>
             </li>
         `;
@@ -102,7 +102,7 @@ class JobListing extends HTMLLIElement {
                     <li class="${liClass}">
                         <button 
                             class="${tabletClass}"
-                            onclick="createFilter('languages', '${element}')"
+                            onclick="Filters.createFilter('languages', '${element}')"
                         >${element}</button>
                     </li>
                 `;
@@ -115,7 +115,7 @@ class JobListing extends HTMLLIElement {
                     <li class="${liClass}">
                         <button 
                             class="${tabletClass}"
-                            onclick="createFilter('tools', '${element}')"
+                            onclick="Filters.createFilter('tools', '${element}')"
                         >${element}</button>
                     </li>
                 `;
