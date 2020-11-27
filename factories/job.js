@@ -12,13 +12,14 @@ const Job = (
     languages,
     tools
 ) => {
+    const time = timeNumber + timeUnit + " ago";
+
     return {
         company,
         isNew,
         isFeatured,
         title,
-        timeNumber,
-        timeUnit,
+        time,
         shift,
         location,
         role,
