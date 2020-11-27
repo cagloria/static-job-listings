@@ -10,7 +10,7 @@ class JobListing extends HTMLLIElement {
         const level = [this.dataset.level];
         const languages = this.splitList(this.dataset.languages);
         const tools = this.splitList(this.dataset.tools);
-        const jobObj = LISTING.getJobs().find((job) => job.id === id);
+        const jobObj = Listings.getJobs().find((job) => job.id === id);
 
         // Logo
         const logoAttr = this.getCompanyLogoAttr(jobObj.company);

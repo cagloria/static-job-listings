@@ -1,36 +1,6 @@
-const Job = (
-    company,
-    isNew,
-    isFeatured,
-    title,
-    timeNumber,
-    timeUnit,
-    shift,
-    location,
-    role,
-    level,
-    languages,
-    tools
-) => {
-    return {
-        company,
-        isNew,
-        isFeatured,
-        title,
-        timeNumber,
-        timeUnit,
-        shift,
-        location,
-        role,
-        level,
-        languages,
-        tools,
-    };
-};
-
-var LISTING = (function () {
+let Listings = (function () {
     let nextId = 0;
-    var jobs = [
+    let jobs = [
         Job(
             "Photosnap",
             true,
@@ -172,23 +142,17 @@ var LISTING = (function () {
             ["React", "Sass"]
         ),
     ];
-    return {
-        /**
-         * @returns LISTING.jobs, the array of Job objects
-         */
-        getJobs: function () {
-            return jobs;
-        },
 
-        /**
-         * Increments the global id and assigns it to the next job.
-         * @returns New id to assign to job
-         */
-        assignId: function () {
-            nextId++;
-            return nextId;
-        },
+    const getJobs = () => {
+        return jobs;
     };
+
+    const assignId = () => {
+        nextId++;
+        return nextId;
+    };
+
+    return { getJobs, assignId };
 })();
 
 /**
@@ -196,9 +160,9 @@ var LISTING = (function () {
  * them to #jobs-container.
  */
 function createJobListings() {
-    let jobs = LISTING.getJobs();
+    let jobs = Listings.getJobs();
     jobs.forEach((job) => {
-        job.id = LISTING.assignId();
+        job.id = Listings.assignId();
         const featuredClass = job.isFeatured ? ` job-listing--featured` : "";
 
         $("#jobs-container").append(`
