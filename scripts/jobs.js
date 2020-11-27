@@ -1,7 +1,37 @@
+const Job = (
+    company,
+    isNew,
+    isFeatured,
+    title,
+    timeNumber,
+    timeUnit,
+    shift,
+    location,
+    role,
+    level,
+    languages,
+    tools
+) => {
+    return {
+        company,
+        isNew,
+        isFeatured,
+        title,
+        timeNumber,
+        timeUnit,
+        shift,
+        location,
+        role,
+        level,
+        languages,
+        tools,
+    };
+};
+
 var LISTING = (function () {
     let nextId = 0;
     var jobs = [
-        new Job(
+        Job(
             "Photosnap",
             true,
             true,
@@ -15,7 +45,7 @@ var LISTING = (function () {
             ["HTML", "CSS", "JavaScript"],
             null
         ),
-        new Job(
+        Job(
             "Manage",
             true,
             true,
@@ -29,7 +59,7 @@ var LISTING = (function () {
             ["Python"],
             ["React"]
         ),
-        new Job(
+        Job(
             "Account",
             true,
             false,
@@ -43,7 +73,7 @@ var LISTING = (function () {
             ["JavaScript"],
             ["React", "Sass"]
         ),
-        new Job(
+        Job(
             "MyHome",
             false,
             false,
@@ -57,7 +87,7 @@ var LISTING = (function () {
             ["CSS", "JavaScript"],
             null
         ),
-        new Job(
+        Job(
             "Loop Studios",
             false,
             false,
@@ -71,7 +101,7 @@ var LISTING = (function () {
             ["JavaScript", "Ruby"],
             ["Sass"]
         ),
-        new Job(
+        Job(
             "FaceIt",
             false,
             false,
@@ -85,7 +115,7 @@ var LISTING = (function () {
             ["Ruby"],
             ["RoR"]
         ),
-        new Job(
+        Job(
             "Shortly",
             false,
             false,
@@ -99,7 +129,7 @@ var LISTING = (function () {
             ["HTML", "JavaScript"],
             ["Sass"]
         ),
-        new Job(
+        Job(
             "Insure",
             false,
             false,
@@ -113,7 +143,7 @@ var LISTING = (function () {
             ["JavaScript"],
             ["Vue", "Sass"]
         ),
-        new Job(
+        Job(
             "Eyecam Co.",
             false,
             false,
@@ -127,7 +157,7 @@ var LISTING = (function () {
             ["JavaScript", "Python"],
             ["Django"]
         ),
-        new Job(
+        Job(
             "The Air Filter Company",
             false,
             false,
@@ -160,48 +190,6 @@ var LISTING = (function () {
         },
     };
 })();
-
-/**
- * Creates a Job object to store in LISTING.jobs.
- * @param {String} company
- * @param {Boolean} isNew
- * @param {Boolean} isFeatured
- * @param {String} title
- * @param {Number} timeNumber
- * @param {String} timeUnit
- * @param {String} shift
- * @param {String} location
- * @param {String} role
- * @param {String} level
- * @param {Array} languages
- * @param {Array} tools
- */
-function Job(
-    company,
-    isNew,
-    isFeatured,
-    title,
-    timeNumber,
-    timeUnit,
-    shift,
-    location,
-    role,
-    level,
-    languages,
-    tools
-) {
-    this.company = company;
-    this.isNew = isNew;
-    this.isFeatured = isFeatured;
-    this.title = title;
-    this.time = timeNumber + timeUnit + " ago";
-    this.shift = shift;
-    this.location = location;
-    this.role = role;
-    this.level = level;
-    this.languages = languages;
-    this.tools = tools;
-}
 
 /**
  * Creates a job-listing element for each job in LISTING.jobs and appends
