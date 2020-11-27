@@ -58,7 +58,7 @@ function createFilter(dataset, category) {
                 data-function=${deleteFilter.name} />`
         );
 
-        updateJobListingDisplay();
+        Listings.updateJobListingDisplay();
     }
 }
 
@@ -69,7 +69,7 @@ function createFilter(dataset, category) {
 function deleteFilter(category) {
     FILTERS.removeFilterObj(category);
     $(`filter-button[data-category=${category}]`).remove();
-    updateJobListingDisplay();
+    Listings.updateJobListingDisplay();
 }
 
 /**

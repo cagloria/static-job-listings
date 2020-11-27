@@ -143,56 +143,52 @@ let Listings = (function () {
         ),
     ];
 
-    const getJobs = () => {
-        return jobs;
-    };
-
     const assignId = () => {
         nextId++;
         return nextId;
     };
 
-    return { getJobs, assignId };
+    return {
+        getJobs: function () {
+            return jobs;
+        },
+
+        createJobListings: function () {
+            jobs.forEach((job) => {
+                job.id = assignId();
+                const featuredClass = job.isFeatured
+                    ? ` job-listing--featured`
+                    : "";
+
+                $("#jobs-container").append(`
+                <li is="job-listing"
+                    id="job-${job.id}"
+                    class="job-listing${featuredClass} content-row"
+                    data-role="${job.role}"
+                    data-level="${job.level}"
+                    data-languages="${job.languages}"
+                    data-tools="${job.tools}" />
+            `);
+            });
+        },
+
+        updateJobListingDisplay: function () {
+            const $jobsContainer = $("#jobs-container");
+            const $jobListings = $jobsContainer.children();
+            const filtersArr = FILTERS.getFilters();
+
+            $jobListings.removeClass("job-listing--invisible");
+            updateFilterDisplay();
+
+            // Go through each element in filters list, and if a job-listing
+            // does not match, set display to none
+            filtersArr.forEach((element) => {
+                $jobsContainer
+                    .children(
+                        `:not([data-${element.dataset}*='${element.category}'])`
+                    )
+                    .addClass("job-listing--invisible");
+            });
+        },
+    };
 })();
-
-/**
- * Creates a job-listing element for each job in LISTING.jobs and appends
- * them to #jobs-container.
- */
-function createJobListings() {
-    let jobs = Listings.getJobs();
-    jobs.forEach((job) => {
-        job.id = Listings.assignId();
-        const featuredClass = job.isFeatured ? ` job-listing--featured` : "";
-
-        $("#jobs-container").append(`
-            <li is="job-listing"
-                id="job-${job.id}"
-                class="job-listing${featuredClass} content-row"
-                data-role="${job.role}"
-                data-level="${job.level}"
-                data-languages="${job.languages}"
-                data-tools="${job.tools}" />
-        `);
-    });
-}
-
-/**
- * Updates job-listing elements to display based on filters.
- */
-function updateJobListingDisplay() {
-    const $jobsContainer = $("#jobs-container");
-    const $jobListings = $jobsContainer.children();
-    const filtersArr = FILTERS.getFilters();
-
-    $jobListings.removeClass("job-listing--invisible");
-    updateFilterDisplay();
-
-    // Go through each element in filters list, and if a job-listing does not
-    // match, set display to none
-    filtersArr.forEach((element) => {
-        $jobsContainer
-            .children(`:not([data-${element.dataset}*='${element.category}'])`)
-            .addClass("job-listing--invisible");
-    });
-}
