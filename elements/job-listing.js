@@ -134,13 +134,13 @@ class JobListing extends HTMLLIElement {
 
     /**
      * Returns src and alt attributes of the logo.
-     * @param {String} name Name of company
+     * @param {String} company Name of company
      * @returns             src and alt attributes of company logo
      */
-    getCompanyLogoAttr(name) {
+    getCompanyLogoAttr(company) {
         let html = ``;
 
-        const companyList = [
+        const logoList = [
             { company: "Account", logo: "account.svg" },
             { company: "Eyecam Co.", logo: "eyecam-co.svg" },
             { company: "FaceIt", logo: "faceit.svg" },
@@ -155,12 +155,10 @@ class JobListing extends HTMLLIElement {
                 logo: "the-air-filter-company.svg",
             },
         ];
-        let companyObj = companyList.find(
-            (company) => company.company === name
-        );
+        let logoObj = logoList.find((obj) => obj.company === company);
 
-        html += `src="./images/${companyObj.logo}" 
-            alt="${companyObj.company} logo"`;
+        html += `src="./images/${logoObj.logo}" 
+            alt="${company} logo"`;
 
         return html;
     }

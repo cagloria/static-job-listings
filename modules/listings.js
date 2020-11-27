@@ -1,147 +1,6 @@
 let Listings = (function () {
     let _nextId = 0;
-    let _jobs = [
-        Job(
-            "Photosnap",
-            true,
-            true,
-            "Senior Frontend Developer",
-            1,
-            "d",
-            "Full Time",
-            "USA only",
-            "Frontend",
-            "Senior",
-            ["HTML", "CSS", "JavaScript"],
-            null
-        ),
-        Job(
-            "Manage",
-            true,
-            true,
-            "Fullstack Developer",
-            1,
-            "d",
-            "Part Time",
-            "Remote",
-            "Fullstack",
-            "Midweight",
-            ["Python"],
-            ["React"]
-        ),
-        Job(
-            "Account",
-            true,
-            false,
-            "Junior Frontend Developer",
-            2,
-            "d",
-            "Part Time",
-            "USA only",
-            "Frontend",
-            "Junior",
-            ["JavaScript"],
-            ["React", "Sass"]
-        ),
-        Job(
-            "MyHome",
-            false,
-            false,
-            "Junior Frontend Developer",
-            5,
-            "d",
-            "Contract",
-            "USA only",
-            "Frontend",
-            "Junior",
-            ["CSS", "JavaScript"],
-            null
-        ),
-        Job(
-            "Loop Studios",
-            false,
-            false,
-            "Software Engineer",
-            1,
-            "w",
-            "Full Time",
-            "Worldwide",
-            "Fullstack",
-            "Midweight",
-            ["JavaScript", "Ruby"],
-            ["Sass"]
-        ),
-        Job(
-            "FaceIt",
-            false,
-            false,
-            "Junior Backend Developer",
-            2,
-            "w",
-            "Full Time",
-            "UK only",
-            "Backend",
-            "Junior",
-            ["Ruby"],
-            ["RoR"]
-        ),
-        Job(
-            "Shortly",
-            false,
-            false,
-            "Junior Developer",
-            2,
-            "w",
-            "Full Time",
-            "Worldwide",
-            "Frontend",
-            "Junior",
-            ["HTML", "JavaScript"],
-            ["Sass"]
-        ),
-        Job(
-            "Insure",
-            false,
-            false,
-            "Junior Frontend Developer",
-            2,
-            "w",
-            "Full Time",
-            "USA only",
-            "Frontend",
-            "Junior",
-            ["JavaScript"],
-            ["Vue", "Sass"]
-        ),
-        Job(
-            "Eyecam Co.",
-            false,
-            false,
-            "Full Stack Engineer",
-            3,
-            "w",
-            "Full Time",
-            "Worldwide",
-            "Fullstack",
-            "Midweight",
-            ["JavaScript", "Python"],
-            ["Django"]
-        ),
-        Job(
-            "The Air Filter Company",
-            false,
-            false,
-            "Front-end Dev",
-            1,
-            "mo",
-            "Part Time",
-            "Worldwide",
-            "Frontend",
-            "Junior",
-            ["JavaScript"],
-            ["React", "Sass"]
-        ),
-    ];
+    let _jobs = [];
 
     const _assignId = () => {
         _nextId++;
@@ -149,6 +8,27 @@ let Listings = (function () {
     };
 
     return {
+        loadJobs: function () {
+            JobsData.getList().forEach((job) => {
+                _jobs.push(
+                    Job(
+                        job.company,
+                        job.isNew,
+                        job.isFeatured,
+                        job.title,
+                        job.timeNumber,
+                        job.timeUnit,
+                        job.shift,
+                        job.location,
+                        job.role,
+                        job.level,
+                        job.languages,
+                        job.tools
+                    )
+                );
+            });
+        },
+
         getJobs: function () {
             return _jobs;
         },
