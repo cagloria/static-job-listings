@@ -6,6 +6,8 @@
 
 [Frontend Mentor](https://www.frontendmentor.io) challenges allow you to improve your skills in a real-life workflow.
 
+This project has been deployed to [cagloria.github.io/static-job-listings](https://cagloria.github.io/static-job-listings/).
+
 ## The challenge
 
 Your challenge is to build out this job listing page and get it looking as close to the design as possible.
